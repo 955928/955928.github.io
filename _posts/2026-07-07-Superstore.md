@@ -4,7 +4,7 @@ date: 2026-07-07 00:00:00 +0800
 categories: [Power BI, Data Analysis]
 tags: [Power BI, Superstore, Dashboard, Data Visualization]
 image:
-  path: assets\images\Superstore\POST_IMAGE.png
+  path: assets/images/Superstore/POST_IMAGE.png
   alt: "Superstore Power BI Dashboard"
 ---
 
@@ -25,7 +25,7 @@ The data model follows a **star schema** with a central fact table (`FACTSALES`)
 ---
 
 ## Page 1 — Executive Overview
-![Executive Overview](assets\images\Superstore\Executive_Overview.png)
+![Executive Overview](assets/images/Superstore/Executive_Overview.png)
 
 
 This page serves as the landing dashboard. It gives decision-makers an immediate overview of the business through four key charts and a KPI summary table. Four slicers (region, category, segment, and date) allow dynamic filtering across the entire page.
@@ -42,7 +42,7 @@ This line chart displays the evolution of total sales over time, broken down by 
 
 ### Chart 2 — Profit by Region *(Column Chart)*
 
-![Profit by Region](assets\images\Superstore\Profit_by_Region.png)
+![Profit by Region](assets/images/Superstore/Profit_by_Region.png)
 
 This column chart compares total profit across the four main regions (Central, East, South, West). It is a straightforward but essential view to understand **which territories are the most profitable** and where the business may need to refocus its efforts.
 
@@ -50,7 +50,7 @@ This column chart compares total profit across the four main regions (Central, E
 
 ### Chart 3 — KPI Summary Table *(Table)*
 
-![KPI SUMMARY TABLE](assets\images\Superstore\KPI_SUMMARY_TABLE.png)
+![KPI SUMMARY TABLE](assets/images/Superstore/KPI_SUMMARY_TABLE.png)
 
 Positioned at the top center of the page, this table provides a quick read on key performance indicators — including total orders, total sales, and total profit. It works as a **reference anchor** for the rest of the page.
 
@@ -58,7 +58,7 @@ Positioned at the top center of the page, this table provides a quick read on ke
 
 ### Chart 4 — Sales by Category *(Clustered Column Chart)*
 
-![Sales by Category](assets\images\Superstore\Sales_by_Category.png)
+![Sales by Category](assets/images/Superstore/Sales_by_Category.png)
 
 This chart compares total sales across the three main product categories: Furniture, Office Supplies, and Technology. It gives an instant read on **which category drives the most revenue** and helps contextualize the profitability data seen in other visuals.
 
@@ -66,14 +66,14 @@ This chart compares total sales across the three main product categories: Furnit
 
 ### Chart 5 — Top 10 Products by Sales *(Clustered Bar Chart)*
 
-![Top 10 Products by Sales](assets\images\Superstore\TOP_10P_BY_SALES.png)
+![Top 10 Products by Sales](assets/images/Superstore/TOP_10P_BY_SALES.png)
 
 This horizontal bar chart ranks the ten best-selling products by total sales. It is useful to identify **star products** and understand what is driving category-level performance. Product names come from the `DimProduct` dimension table.
 
 ---
 
 ## Page 2 — Product & Customer Analysis
-![Product & Customer Analysis](assets\images\Superstore\Product_and_Customer_Analysis.png)
+![Product & Customer Analysis](assets/images/Superstore/Product_and_Customer_Analysis.png)
 
 This page goes deeper into the product catalog and customer base. It answers questions like: Which sub-categories are performing well? Who are the most valuable customers? Which segments generate the most profit?
 
@@ -81,7 +81,7 @@ This page goes deeper into the product catalog and customer base. It answers que
 
 ### Chart 6 — Top 10 Products by Sales *(Clustered Bar Chart)*
 
-![Top 10 Products by Sales ](assets\images\Superstore\TOP_10P_BY_SALES.png)
+![Top 10 Products by Sales ](assets/images/Superstore/TOP_10P_BY_SALES.png)
 
 A product-level bar chart used here as a starting point for the product-focused analysis page. It provides continuity and context before drilling into sub-category and customer data.
 
@@ -89,7 +89,7 @@ A product-level bar chart used here as a starting point for the product-focused 
 
 ### Chart 7 — Profit by Category *(Clustered Column Chart)*
 
-![Profit by Category](assets\images\Superstore\Profit_by_Category.png)
+![Profit by Category](assets/images/Superstore/Profit_by_Category.png)
 
 While page 1 showed sales by category, this chart focuses on **profit**. The distinction is important: a category can generate high revenue but low (or even negative) profit. This visual highlights where the real margins are.
 
@@ -97,7 +97,7 @@ While page 1 showed sales by category, this chart focuses on **profit**. The dis
 
 ### Chart 8 — Top 10 Customers by Sales *(Bar Chart)*
 
-![Top 10 Customers by Sales](assets\images\Superstore\TOP_10C_BY_SALES.png)
+![Top 10 Customers by Sales](assets/images/Superstore/TOP_10C_BY_SALES.png)
 
 This chart identifies the **ten most valuable customers** ranked by total sales. For a retail business, understanding the top customer base is key to loyalty and CRM strategies.
 
@@ -105,7 +105,7 @@ This chart identifies the **ten most valuable customers** ranked by total sales.
 
 ### Chart 9 — Sales by Sub-Category *(Clustered Bar Chart)*
 
-![Sales by Sub-Category](assets\images\Superstore\TOP_10S_BY_SUBCAT.png)
+![Sales by Sub-Category](assets/images/Superstore/TOP_10S_BY_SUBCAT.png)
 
 This chart breaks sales down to a more granular level, showing performance across all product sub-categories (e.g., Chairs, Phones, Binders…). It helps identify **hidden gems and underperformers** within each main category.
 
@@ -128,7 +128,7 @@ The third page shifts from "what" to "how". It examines shipping efficiency, the
 
 ### Chart 11 — Month-Year Profit Trend *(Line Chart)*
 
-![Month-Year Profit Trend](assets\images\Superstore\Mont-Year_Profit_Trend.png)
+![Month-Year Profit Trend](assets/images/Superstore/Mont-Year_Profit_Trend.png)
 
 This line chart tracks **profit over time** by year and month. Comparing it to the sales trend from page 1 reveals whether revenue growth translates into proportional profit growth — or whether costs and discounts are eroding margins.
 
@@ -136,7 +136,7 @@ This line chart tracks **profit over time** by year and month. Comparing it to t
 
 ### Chart 12 — Average Shipping Days *(Card Visual)*
 
-![Average Shipping Days](assets\images\Superstore\AVG_SHIPPINGDAYS.png)
+![Average Shipping Days](assets/images/Superstore/AVG_SHIPPINGDAYS.png)
 
 A single KPI card displaying the **average number of days between order date and ship date** across all orders. This is a key operational metric — a high average signals logistics issues; a low one reflects supply chain efficiency.
 
@@ -144,7 +144,7 @@ A single KPI card displaying the **average number of days between order date and
 
 ### Chart 13 — Profit by Ship Mode *(Bar Chart)*
 
-![Profit by Ship Mode](assets\images\Superstore\Profit_by_ShipMode.png)
+![Profit by Ship Mode](assets/images/Superstore/Profit_by_ShipMode.png)
 
 This chart compares profitability across the different shipping modes (Standard Class, Second Class, First Class, Same Day). It answers a critical question: **does faster shipping come at the cost of profit margins?**
 
@@ -152,7 +152,7 @@ This chart compares profitability across the different shipping modes (Standard 
 
 ### Chart 14 — Average Shipping Days by Ship Mode *(Clustered Bar Chart)*
 
-![Average Shipping Days by Ship Mode](assets\images\Superstore\AVG_SHIPPINGDAYS_BY_SHIPMODE.png)
+![Average Shipping Days by Ship Mode](assets/images/Superstore/AVG_SHIPPINGDAYS_BY_SHIPMODE.png)
 
 This chart shows the **average delivery time for each shipping mode**, making it easy to verify whether the modes are performing as expected (e.g., Same Day should have the lowest average, Standard Class the highest).
 
@@ -160,7 +160,7 @@ This chart shows the **average delivery time for each shipping mode**, making it
 
 ### Chart 15 — Average Shipping Days by Region *(Clustered Bar Chart)*
 
-![ Average Shipping Days by Region](assets\images\Superstore\AVG_SHIPPINGDAYS_BY_REGION.png)
+![ Average Shipping Days by Region](assets/images/Superstore/AVG_SHIPPINGDAYS_BY_REGION.png)
 
 Shipping speed is compared across the four regions here. **Regional disparities** in delivery time can point to logistics bottlenecks or infrastructure differences that deserve attention.
 
@@ -168,7 +168,7 @@ Shipping speed is compared across the four regions here. **Regional disparities*
 
 ### Chart 16 — Discount vs Profit *(Scatter Chart)*
 
-![Discount vs Profit](assets\images\Superstore\Discount_vs_Profit.png)
+![Discount vs Profit](assets/images/Superstore/Discount_vs_Profit.png)
 
 This scatter plot is one of the most analytically rich visuals in the report. Each point represents an order, plotted by its **discount rate (X-axis) against its resulting profit (Y-axis)**. The expected — and common — finding is a **negative correlation**: higher discounts tend to destroy profit margins.
 
@@ -176,7 +176,7 @@ This scatter plot is one of the most analytically rich visuals in the report. Ea
 
 ### Chart 17 — Sales and Profit per Month *(Line Chart)*
 
-![Sales and Profit per Month](assets\images\Superstore\Sales_and_Profit_monthly.png)
+![Sales and Profit per Month](assets/images/Superstore/Sales_and_Profit_monthly.png)
 The final visual overlays **monthly sales and profit on the same line chart**, giving a direct comparison of both metrics over time. It closes the report by connecting revenue generation with bottom-line results.
 
 ---
