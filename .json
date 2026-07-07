@@ -1,0 +1,75 @@
+[33mcommit 95ac77154075816318f0fe40ce4be8e7c50d3ddf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: 955928 <145359084+955928@users.noreply.github.com>
+Date:   Tue Jul 7 23:24:22 2026 +0200
+
+    Publish Superstore Power BI blog
+
+ _config.yml                                        |  31 [32m++[m[31m-[m
+ _plugins/watcher-patch.rb                          |  15 [32m++[m
+ _posts/2026-07-07-Superstore.md                    | 263 [32m+++++++++++++++++++++[m
+ _posts/image.png                                   | Bin [31m0[m -> [32m77960[m bytes
+ assets/images/Superstore/AVG_SHIPPINGDAYS.png      | Bin [31m0[m -> [32m8727[m bytes
+ .../Superstore/AVG_SHIPPINGDAYS_BY_REGION.png      | Bin [31m0[m -> [32m27765[m bytes
+ .../Superstore/AVG_SHIPPINGDAYS_BY_SHIPMODE.png    | Bin [31m0[m -> [32m30085[m bytes
+ assets/images/Superstore/Discount_vs_Profit.png    | Bin [31m0[m -> [32m38258[m bytes
+ assets/images/Superstore/Executive_Overview.png    | Bin [31m0[m -> [32m77960[m bytes
+ assets/images/Superstore/KPI_SUMMARY_TABLE.png     | Bin [31m0[m -> [32m4376[m bytes
+ .../images/Superstore/Mont-Year_Profit_Trend.png   | Bin [31m0[m -> [32m87569[m bytes
+ .../images/Superstore/Month-Year_Sales_Trend.png   | Bin [31m0[m -> [32m82511[m bytes
+ .../Operations_and_Profitability_Analysis.png      | Bin [31m0[m -> [32m115120[m bytes
+ assets/images/Superstore/POST_IMAGE.png            | Bin [31m0[m -> [32m984087[m bytes
+ .../Superstore/Product_and_Customer_Analysis.png   | Bin [31m0[m -> [32m81774[m bytes
+ assets/images/Superstore/Profit_by_Category.png    | Bin [31m0[m -> [32m18337[m bytes
+ assets/images/Superstore/Profit_by_CustomerSeg.png | Bin [31m0[m -> [32m37876[m bytes
+ assets/images/Superstore/Profit_by_Region.png      | Bin [31m0[m -> [32m16137[m bytes
+ assets/images/Superstore/Profit_by_ShipMode.png    | Bin [31m0[m -> [32m27307[m bytes
+ .../images/Superstore/Sales_and_Profit_monthly.png | Bin [31m0[m -> [32m67928[m bytes
+ assets/images/Superstore/Sales_by_Category.png     | Bin [31m0[m -> [32m18098[m bytes
+ assets/images/Superstore/TOP_10C_BY_SALES.png      | Bin [31m0[m -> [32m34324[m bytes
+ assets/images/Superstore/TOP_10P_BY_SALES.png      | Bin [31m0[m -> [32m42161[m bytes
+ assets/images/Superstore/TOP_10S_BY_SUBCAT.png     | Bin [31m0[m -> [32m37976[m bytes
+ 24 files changed, 292 insertions(+), 17 deletions(-)
+
+[33mcommit 04cd36dc54655af2cc02e0defebeaf6fa3c61acb[m
+Author: Djo_Chath <145359084+955928@users.noreply.github.com>
+Date:   Thu May 28 14:20:30 2026 +0200
+
+    adding personal username
+
+ _config.yml | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[33mcommit 3ebdc5d0a4118e3314558d95485b92be14c3d012[m
+Author: Djo_Chath <145359084+955928@users.noreply.github.com>
+Date:   Thu May 28 14:18:49 2026 +0200
+
+    Initial commit
+
+ .devcontainer/devcontainer.json    |  29 [32m+++++[m
+ .devcontainer/post-create.sh       |  18 [32m+++[m
+ .editorconfig                      |  19 [32m++++[m
+ .gitattributes                     |  16 [32m+++[m
+ .github/workflows/pages-deploy.yml |  73 [32m++++++++++++[m
+ .gitignore                         |  27 [32m+++++[m
+ .gitmodules                        |   3 [32m+[m
+ .nojekyll                          |   1 [32m+[m
+ .vscode/extensions.json            |   3 [32m+[m
+ .vscode/settings.json              |  30 [32m+++++[m
+ .vscode/tasks.json                 |  26 [32m+++++[m
+ Gemfile                            |  14 [32m+++[m
+ LICENSE                            |  21 [32m++++[m
+ README.md                          |  39 [32m+++++++[m
+ _config.yml                        | 227 [32m+++++++++++++++++++++++++++++++++++++[m
+ _data/contact.yml                  |  40 [32m+++++++[m
+ _data/share.yml                    |  50 [32m++++++++[m
+ _plugins/posts-lastmod-hook.rb     |  14 [32m+++[m
+ _posts/.placeholder                |   1 [32m+[m
+ _tabs/about.md                     |   8 [32m++[m
+ _tabs/archives.md                  |   5 [32m+[m
+ _tabs/categories.md                |   5 [32m+[m
+ _tabs/tags.md                      |   5 [32m+[m
+ assets/lib                         |   1 [32m+[m
+ index.html                         |   4 [32m+[m
+ tools/run.sh                       |  54 [32m+++++++++[m
+ tools/test.sh                      |  89 [32m+++++++++++++++[m
+ 27 files changed, 822 insertions(+)

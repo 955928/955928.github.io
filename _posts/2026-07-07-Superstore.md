@@ -180,17 +180,17 @@ This scatter plot is one of the most analytically rich visuals in the report. Ea
 The final visual overlays **monthly sales and profit on the same line chart**, giving a direct comparison of both metrics over time. It closes the report by connecting revenue generation with bottom-line results.
 
 ---
-# Conclusion & Key Insights
+## Conclusion & Key Insights
 
 After building and exploring this report across three interactive pages, several patterns emerged that provide a comprehensive view of the Superstore's performance, highlighting both strengths and areas for improvement.
 
-## 📈 Sales Are Growing, but Profit Does Not Always Follow
+## Sales Are Growing, but Profit Does Not Always Follow
 
 The **Month-Year Sales Trend** demonstrates consistent year-over-year revenue growth, with noticeable seasonal peaks during the fourth quarter. However, the **Profit Trend** reveals that increasing sales do not always translate into higher profitability. In several periods, profit growth lags behind sales growth, indicating margin compression. Comparing both metrics makes it clear that revenue alone is not a sufficient measure of business performance.
 
 ---
 
-## 💸 Discounts Significantly Impact Profitability
+## Discounts Significantly Impact Profitability
 
 One of the strongest insights from the report comes from the **Discount vs. Profit** scatter plot. A clear negative relationship exists between discount rates and profit: heavily discounted orders frequently generate little or even negative profit.
 
@@ -198,7 +198,7 @@ This suggests that while discounts may help increase sales volume, excessive dis
 
 ---
 
-## 💻 Technology Is the Best-Performing Category
+## Technology Is the Best-Performing Category
 
 Among the three product categories, **Technology** consistently delivers both the highest sales and the strongest profits.
 
@@ -208,7 +208,7 @@ Among the three product categories, **Technology** consistently delivers both th
 
 ---
 
-## 🌎 Regional Performance Is Uneven
+## Regional Performance Is Uneven
 
 The regional analysis shows that the **West** and **East** regions contribute the majority of the company's profits.
 
@@ -216,7 +216,7 @@ In contrast, the **Central** region generates respectable sales but underperform
 
 ---
 
-## 🚚 Standard Class Shipping Performs Best
+## Standard Class Shipping Performs Best
 
 Shipping mode analysis reveals that **Standard Class** is both the most frequently used shipping option and the most profitable.
 
@@ -224,7 +224,7 @@ Premium shipping methods such as **First Class** and **Same Day** provide faster
 
 ---
 
-## 👥 A Small Number of Customers Drive a Large Share of Revenue
+## A Small Number of Customers Drive a Large Share of Revenue
 
 The Top 10 customer and product analyses demonstrate a classic retail pattern: a relatively small number of customers and products account for a disproportionate share of total revenue.
 
