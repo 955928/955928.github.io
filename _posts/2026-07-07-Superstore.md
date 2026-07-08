@@ -10,21 +10,21 @@ image:
 
 ## Introduction
 
-For this first data project published on my blog, I chose to work with the classic **Superstore dataset** — a fictional retail company selling furniture, office supplies, and technology products across multiple regions in the United States. This dataset is widely used in the data analytics community and is a great playground to practice business intelligence techniques.
+For this first data project published on my blog, I chose to work with the classic **Superstore dataset** ,a fictional retail company selling furniture, office supplies, and technology products across multiple regions in the United States. This dataset is widely used in the data analytics community and is a great playground to practice business intelligence techniques.
 
 The goal of this project was to build a complete and interactive Power BI report that answers three key business questions: **How are sales and profits evolving over time? Who are our best customers and top-performing products? And how efficient are our operations and shipping?**
 
 To answer these, I structured the report into three pages, each with a specific analytical focus:
 
-- **Executive Overview** — a high-level snapshot of overall performance
-- **Product & Customer Analysis** — a deep dive into what sells and who buys
-- **Operations & Profitability Analysis** — an examination of shipping efficiency and margin drivers
+- **Executive Overview** : a high-level snapshot of overall performance
+- **Product & Customer Analysis** : a deep dive into what sells and who buys
+- **Operations & Profitability Analysis** : an examination of shipping efficiency and margin drivers
 
 The data model follows a **star schema** with a central fact table (`FACTSALES`) linked to three dimension tables: `DimProduct`, `DimCustomer`, and `DimDate`.
 
 ---
 
-## Page 1 — Executive Overview
+## Page 1 Executive Overview
 ![Executive Overview](assets/images/Superstore/Executive_Overview.png)
 
 
@@ -32,7 +32,7 @@ This page serves as the landing dashboard. It gives decision-makers an immediate
 
 ---
 
-### Chart 1 — Month-Year Sales Trend *(Line Chart)*
+### Chart 1  Month-Year Sales Trend *(Line Chart)*
 
 ![Month-Year Sales Trend](/assets/images/Superstore/Month-Year_Sales_Trend.png)
 
@@ -40,7 +40,7 @@ This line chart displays the evolution of total sales over time, broken down by 
 
 ---
 
-### Chart 2 — Profit by Region *(Column Chart)*
+### Chart 2 Profit by Region *(Column Chart)*
 
 ![Profit by Region](assets/images/Superstore/Profit_by_Region.png)
 
@@ -48,15 +48,15 @@ This column chart compares total profit across the four main regions (Central, E
 
 ---
 
-### Chart 3 — KPI Summary Table *(Table)*
+### Chart 3 KPI Summary Table *(Table)*
 
 ![KPI SUMMARY TABLE](assets/images/Superstore/KPI_SUMMARY_TABLE.png)
 
-Positioned at the top center of the page, this table provides a quick read on key performance indicators — including total orders, total sales, and total profit. It works as a **reference anchor** for the rest of the page.
+Positioned at the top center of the page, this table provides a quick read on key performance indicators,including total orders, total sales, and total profit. It works as a **reference anchor** for the rest of the page.
 
 ---
 
-### Chart 4 — Sales by Category *(Clustered Column Chart)*
+### Chart 4 Sales by Category *(Clustered Column Chart)*
 
 ![Sales by Category](assets/images/Superstore/Sales_by_Category.png)
 
@@ -64,7 +64,7 @@ This chart compares total sales across the three main product categories: Furnit
 
 ---
 
-### Chart 5 — Top 10 Products by Sales *(Clustered Bar Chart)*
+### Chart 5 Top 10 Products by Sales *(Clustered Bar Chart)*
 
 ![Top 10 Products by Sales](assets/images/Superstore/TOP_10P_BY_SALES.png)
 
@@ -72,14 +72,14 @@ This horizontal bar chart ranks the ten best-selling products by total sales. It
 
 ---
 
-## Page 2 — Product & Customer Analysis
+## Page 2 Product & Customer Analysis
 ![Product & Customer Analysis](assets/images/Superstore/Product_and_Customer_Analysis.png)
 
 This page goes deeper into the product catalog and customer base. It answers questions like: Which sub-categories are performing well? Who are the most valuable customers? Which segments generate the most profit?
 
 ---
 
-### Chart 6 — Top 10 Products by Sales *(Clustered Bar Chart)*
+### Chart 6 Top 10 Products by Sales *(Clustered Bar Chart)*
 
 ![Top 10 Products by Sales ](assets/images/Superstore/TOP_10P_BY_SALES.png)
 
@@ -87,7 +87,7 @@ A product-level bar chart used here as a starting point for the product-focused 
 
 ---
 
-### Chart 7 — Profit by Category *(Clustered Column Chart)*
+### Chart 7 Profit by Category *(Clustered Column Chart)*
 
 ![Profit by Category](assets/images/Superstore/Profit_by_Category.png)
 
@@ -95,7 +95,7 @@ While page 1 showed sales by category, this chart focuses on **profit**. The dis
 
 ---
 
-### Chart 8 — Top 10 Customers by Sales *(Bar Chart)*
+### Chart 8 Top 10 Customers by Sales *(Bar Chart)*
 
 ![Top 10 Customers by Sales](assets/images/Superstore/TOP_10C_BY_SALES.png)
 
@@ -103,7 +103,7 @@ This chart identifies the **ten most valuable customers** ranked by total sales.
 
 ---
 
-### Chart 9 — Sales by Sub-Category *(Clustered Bar Chart)*
+### Chart 9 Sales by Sub-Category *(Clustered Bar Chart)*
 
 ![Sales by Sub-Category](assets/images/Superstore/TOP_10S_BY_SUBCAT.png)
 
@@ -111,38 +111,38 @@ This chart breaks sales down to a more granular level, showing performance acros
 
 ---
 
-### Chart 10 — Profit by Customer Segment *(Donut Chart)*
+### Chart 10 Profit by Customer Segment *(Donut Chart)*
 
 ![Profit by Customer Segment](assets/images/Superstore/Profit_by_CustomerSeg.png)
 
-The three customer segments — Consumer, Corporate, and Home Office — are compared here by their contribution to total profit. The donut chart format makes it easy to read **proportional share at a glance**, and reveals which segment is the most profitable relative to its size.
+The three customer segments (Consumer, Corporate, and Home Office) are compared here by their contribution to total profit. The donut chart format makes it easy to read **proportional share at a glance**, and reveals which segment is the most profitable relative to its size.
 
 ---
 
-## Page 3 — Operations & Profitability Analysis
+## Page 3 Operations & Profitability Analysis
 ![Operations & Profitability Analysis](assets/images/Superstore/Operations_and_Profitability_Analysis.png)
 
 The third page shifts from "what" to "how". It examines shipping efficiency, the impact of discounts on profit, and the combined monthly evolution of sales and profit. This is where operational decisions and pricing strategies come under scrutiny.
 
 ---
 
-### Chart 11 — Month-Year Profit Trend *(Line Chart)*
+### Chart 11 Month-Year Profit Trend *(Line Chart)*
 
 ![Month-Year Profit Trend](assets/images/Superstore/Mont-Year_Profit_Trend.png)
 
-This line chart tracks **profit over time** by year and month. Comparing it to the sales trend from page 1 reveals whether revenue growth translates into proportional profit growth — or whether costs and discounts are eroding margins.
+This line chart tracks **profit over time** by year and month. Comparing it to the sales trend from page 1 reveals whether revenue growth translates into proportional profit growth or whether costs and discounts are eroding margins.
 
 ---
 
-### Chart 12 — Average Shipping Days *(Card Visual)*
+### Chart 12 Average Shipping Days *(Card Visual)*
 
 ![Average Shipping Days](assets/images/Superstore/AVG_SHIPPINGDAYS.png)
 
-A single KPI card displaying the **average number of days between order date and ship date** across all orders. This is a key operational metric — a high average signals logistics issues; a low one reflects supply chain efficiency.
+A single KPI card displaying the **average number of days between order date and ship date** across all orders. This is a key operational metric, a high average signals logistics issues; a low one reflects supply chain efficiency.
 
 ---
 
-### Chart 13 — Profit by Ship Mode *(Bar Chart)*
+### Chart 13 Profit by Ship Mode *(Bar Chart)*
 
 ![Profit by Ship Mode](assets/images/Superstore/Profit_by_ShipMode.png)
 
@@ -150,7 +150,7 @@ This chart compares profitability across the different shipping modes (Standard 
 
 ---
 
-### Chart 14 — Average Shipping Days by Ship Mode *(Clustered Bar Chart)*
+### Chart 14 Average Shipping Days by Ship Mode *(Clustered Bar Chart)*
 
 ![Average Shipping Days by Ship Mode](assets/images/Superstore/AVG_SHIPPINGDAYS_BY_SHIPMODE.png)
 
@@ -158,7 +158,7 @@ This chart shows the **average delivery time for each shipping mode**, making it
 
 ---
 
-### Chart 15 — Average Shipping Days by Region *(Clustered Bar Chart)*
+### Chart 15 Average Shipping Days by Region *(Clustered Bar Chart)*
 
 ![ Average Shipping Days by Region](assets/images/Superstore/AVG_SHIPPINGDAYS_BY_REGION.png)
 
@@ -166,15 +166,15 @@ Shipping speed is compared across the four regions here. **Regional disparities*
 
 ---
 
-### Chart 16 — Discount vs Profit *(Scatter Chart)*
+### Chart 16 Discount vs Profit *(Scatter Chart)*
 
 ![Discount vs Profit](assets/images/Superstore/Discount_vs_Profit.png)
 
-This scatter plot is one of the most analytically rich visuals in the report. Each point represents an order, plotted by its **discount rate (X-axis) against its resulting profit (Y-axis)**. The expected — and common — finding is a **negative correlation**: higher discounts tend to destroy profit margins.
+This scatter plot is one of the most analytically rich visuals in the report. Each point represents an order, plotted by its **discount rate (X-axis) against its resulting profit (Y-axis)**. The expected and common finding is a **negative correlation**: higher discounts tend to destroy profit margins.
 
 ---
 
-### Chart 17 — Sales and Profit per Month *(Line Chart)*
+### Chart 17 Sales and Profit per Month *(Line Chart)*
 
 ![Sales and Profit per Month](assets/images/Superstore/Sales_and_Profit_monthly.png)
 The final visual overlays **monthly sales and profit on the same line chart**, giving a direct comparison of both metrics over time. It closes the report by connecting revenue generation with bottom-line results.
