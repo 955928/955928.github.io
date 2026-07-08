@@ -1,5 +1,5 @@
 ---
-title: "Power BI Project — Superstore Sales Analysis"
+title: "Power BI Project:Superstore Sales Analysis"
 date: 2026-07-07 00:00:00 +0000
 categories: [Power BI, Data Analysis]
 tags: [Power BI, Superstore, Dashboard, Data Visualization]
