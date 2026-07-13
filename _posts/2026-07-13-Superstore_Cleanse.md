@@ -4,7 +4,7 @@ date: 2026-07-07 00:00:00 +0000
 categories: [Power BI, Data Modeling]
 tags: [Power BI, Power Query, Star Schema, Data Cleaning, DAX]
 image:
-  path: assets\images\cleaning_data.jpg
+  path: assets/images/cleaning_data.jpg
   alt: "Superstore Power BI Data Modeling"
 ---
 
@@ -22,7 +22,7 @@ The raw Superstore file is a flat table. Every row contains information about an
 
 The first step was to load the raw CSV file into Power Query. This created the base SUPERSTORE query, which serves as the untouched reference from which all other tables are derived. The source is never modified directly. Every transformation happens on a reference or duplicate of this query, which ensures the original data remains intact throughout the process.
 
-![ Cleaned Dataset](assets\images\Superstore\Cleanning and Modeling my data\Cleaned_dataset_source.png)
+![ Cleaned Dataset](assets/images/Superstore/Cleanning and Modeling my data/Cleaned_dataset_source.png)
 
 The steps applied to the source query were the following:
 
@@ -44,7 +44,7 @@ Each of these steps is essential. Wrong data types are one of the most common ca
 
 ### The FACTSALES Table
 
-![Columns Deletd](assets\images\Superstore\Cleanning and Modeling my data\Deleted Columns.png)
+![Columns Deletd](assets/images/Superstore/Cleanning and Modeling my data/Deleted Columns.png)
 
 The FACTSALES table is a reference of the cleaned SUPERSTORE query. From that reference, unnecessary columns were removed using Table.SelectColumns, keeping only the fields relevant to transactions: Order ID, Order Date, Ship Date, Ship Mode, Customer ID, Segment, Region, Product ID, Product Name, Sales, Quantity, Discount, Profit, and Category.
 
@@ -58,7 +58,7 @@ Keeping only the necessary columns reduces the file size and keeps the model cle
 
 ### DimCustomer
 
-![Customer Dimension](assets\images\Superstore\Cleanning and Modeling my data\Customer_dimension.png)
+![Customer Dimension](assets/images/Superstore/Cleanning and Modeling my data/Customer_dimension.png)
 
 The DimCustomer table was created by referencing FACTSALES and keeping only three columns: Customer Name, Customer ID, and Segment. A Table.Distinct step was then applied on Customer ID to remove duplicate rows and keep only one record per unique customer.
 
@@ -66,7 +66,7 @@ The result is a clean lookup table with 793 unique customers, each with their as
 
 ### DimProduct
 
-![Product Dimension](assets\images\Superstore\Cleanning and Modeling my data\Product_Dimension.png)
+![Product Dimension](assets/images/Superstore/Cleanning and Modeling my data/Product_Dimension.png)
 
 DimProduct follows the same logic. It references FACTSALES, keeps Product Name, Sub-Category, Category, and Product ID, then applies Table.Distinct on Product ID to deduplicate. The result is a product catalog where each product appears exactly once with its full classification hierarchy.
 
@@ -74,7 +74,7 @@ This table allows the report to slice sales and profit by Category and Sub-Categ
 
 ### DimDate
 
-![Date Dimension](assets\images\Superstore\Cleanning and Modeling my data\Date_Dimmension.png)
+![Date Dimension](assets/images/Superstore/Cleanning and Modeling my data/Date_Dimmension.png)
 
 DimDate was created by referencing FACTSALES, keeping only the Order Date column, and applying Table.Distinct to get one row per unique date. This gives a list of all dates present in the dataset.
 
@@ -86,7 +86,7 @@ A proper date table ideally covers every calendar day in the range (not just tra
 
 ### The Model
 
-![Modeling](assets\images\Superstore\Cleanning and Modeling my data\Modeling.png)
+![Modeling](assets/images/Superstore/Cleanning and Modeling my data/Modeling.png)
 
 With all four tables ready (FACTSALES, DimCustomer, DimProduct, DimDate), the next step was to build the relationships in the Model view. The target structure is a star schema: one central fact table connected to multiple dimension tables, each linked by a shared key.
 
@@ -102,7 +102,7 @@ The SUPERSTORE source table remains visible in the model but is hidden from repo
 
 ### The Relations and Their Importance
 
-![Relationships](assets\images\Superstore\Cleanning and Modeling my data\Relations.png)
+![Relationships](assets/images/Superstore/Cleanning and Modeling my data/Relations.png)
 
 Relationships are what allow Power BI to filter across tables automatically. When a slicer on the report filters by Segment (from DimCustomer), Power BI uses the relationship between DimCustomer and FACTSALES to filter the corresponding sales rows. Without relationships, every measure would need to be written with explicit filter logic in DAX, which is far more complex and error-prone.
 
@@ -110,7 +110,7 @@ Getting the cardinality right matters. A many-to-many relationship between two t
 
 ### The Filter Directions
 
-![Directions](assets\images\Superstore\Cleanning and Modeling my data\Directions.png)
+![Directions](assets/images/Superstore/Cleanning and Modeling my data/Directions.png)
 
 Each relationship has a filter direction, indicated by the arrow in the model view. In this model, all relationships use single direction filtering, meaning filters flow from the dimension table toward the fact table.
 
@@ -133,3 +133,4 @@ The next post will cover the DAX measures written on top of this model and how t
 ---
 *Thank you for taking the time to explore this project. It forms part of my data analytics portfolio and showcases my ability to transform business data into meaningful insights using Power BI. Feedback and suggestions are always welcome.
 *This project was built with Power BI Desktop using the public Superstore sample dataset, as part of my ongoing data portfolio.*
+
