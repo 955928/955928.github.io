@@ -7,8 +7,8 @@ image:
   path: assets/images/Superstore/POST_IMAGE.png
   alt: "Superstore Power BI Dashboard"
 ---
-
-#Introduction#
+---
+##Introduction
 
 For this first data project published on my blog, I chose to work with the classic **Superstore dataset** ,a fictional retail company selling furniture, office supplies, and technology products across multiple regions in the United States. This dataset is widely used in the data analytics community and is a great playground to practice business intelligence techniques.
 
@@ -56,7 +56,7 @@ Positioned at the top center of the page, this table provides a quick read on ke
 
 ---
 
-### Chart 4 Sales by Category *(Clustered Column Chart)*
+### Chart 4 Sales by Category *(Column Chart)*
 
 ![Sales by Category](assets/images/Superstore/Sales_by_Category.png)
 
@@ -64,7 +64,7 @@ This chart compares total sales across the three main product categories: Furnit
 
 ---
 
-### Chart 5 Top 10 Products by Sales *(Clustered Bar Chart)*
+### Chart 5 Top 10 Products by Sales *(Bar Chart)*
 
 ![Top 10 Products by Sales](assets/images/Superstore/TOP_10P_BY_SALES.png)
 
@@ -79,7 +79,7 @@ This page goes deeper into the product catalog and customer base. It answers que
 
 ---
 
-### Chart 6 Top 10 Products by Sales *(Clustered Bar Chart)*
+### Chart 6 Top 10 Products by Sales *(Bar Chart)*
 
 ![Top 10 Products by Sales ](assets/images/Superstore/TOP_10P_BY_SALES.png)
 
@@ -87,7 +87,7 @@ A product-level bar chart used here as a starting point for the product-focused 
 
 ---
 
-### Chart 7 Profit by Category *(Clustered Column Chart)*
+### Chart 7 Profit by Category *(Column Chart)*
 
 ![Profit by Category](assets/images/Superstore/Profit_by_Category.png)
 
@@ -103,7 +103,7 @@ This chart identifies the **ten most valuable customers** ranked by total sales.
 
 ---
 
-### Chart 9 Sales by Sub-Category *(Clustered Bar Chart)*
+### Chart 9 Sales by Sub-Category *(Bar Chart)*
 
 ![Sales by Sub-Category](assets/images/Superstore/TOP_10S_BY_SUBCAT.png)
 
@@ -150,7 +150,7 @@ This chart compares profitability across the different shipping modes (Standard 
 
 ---
 
-### Chart 14 Average Shipping Days by Ship Mode *(Clustered Bar Chart)*
+### Chart 14 Average Shipping Days by Ship Mode *(Bar Chart)*
 
 ![Average Shipping Days by Ship Mode](assets/images/Superstore/AVG_SHIPPINGDAYS_BY_SHIPMODE.png)
 
@@ -158,7 +158,7 @@ This chart shows the **average delivery time for each shipping mode**, making it
 
 ---
 
-### Chart 15 Average Shipping Days by Region *(Clustered Bar Chart)*
+### Chart 15 Average Shipping Days by Region *(Bar Chart)*
 
 ![ Average Shipping Days by Region](assets/images/Superstore/AVG_SHIPPINGDAYS_BY_REGION.png)
 
