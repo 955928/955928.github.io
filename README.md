@@ -20,5 +20,5 @@ Topics covered: Power BI, Python, Data Analysis, and more.
 - GitHub Pages — Hosting
 
 ## Contact
-- LinkedIn: [your LinkedIn URL here]
+- LinkedIn: [https://www.linkedin.com/in/djovan-chathuant]
 - Blog: [955928.github.io](https://955928.github.io)
