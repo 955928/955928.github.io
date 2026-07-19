@@ -133,6 +133,43 @@ The third page shifts from "what" to "how". It examines shipping efficiency, the
 This line chart tracks **profit over time** by year and month. Comparing it to the sales trend from page 1 reveals whether revenue growth translates into proportional profit growth or whether costs and discounts are eroding margins.
 
 ---
+---
+
+## Calculated Column and Measure — Average Shipping Days
+
+### The Calculated Column
+
+![Shipping Days Column](/assets/images/Superstore/AVG_SHIPPINGDAYS_COLONNE.png)
+
+Before creating any measure related to shipping performance, a calculated column called **Shipping Days** had to be added directly to the FACTSALES table. A calculated column computes a value row by row at the time the model is refreshed, and stores the result alongside the other columns in the table.
+
+The formula used is the following:
+
+```dax
+Shipping Days = DATEDIFF(FactSales[Order Date], FactSales[Ship Date], DAY)
+```
+
+DATEDIFF takes two date columns and returns the number of units between them, in this case days. For each order row, it calculates exactly how many days elapsed between the order being placed and the item being shipped. The result is a new integer column that can then be aggregated in a measure.
+
+This step is necessary because the raw dataset does not contain this information directly. Order Date and Ship Date exist as separate columns but the gap between them has to be derived explicitly.
+
+### The Measure
+
+![Average Shipping Days Measure](/assets/images/Superstore/AVG_SHIPPINGDAYS_measure.png)
+
+With the Shipping Days column in place, the measure was straightforward to write:
+
+```dax
+Average Shipping Days = AVERAGE(FactSales[Shipping Days])
+```
+
+AVERAGE iterates over all rows currently in context and returns the mean value of the Shipping Days column. Because it is a measure and not a column, it recalculates dynamically depending on whatever filters are active in the report, whether that is a region slicer, a ship mode filter, or a date selection.
+
+The result across the full dataset is **3.96 days**, meaning orders take on average just under 4 days to ship. This single number becomes the baseline against which shipping performance by region and by ship mode is compared in the Operations page of the report.
+
+The combination of a calculated column for the row-level computation and a measure for the aggregation is the correct and standard approach in Power BI for this type of derived metric.
+
+---
 
 ### Chart 12 Average Shipping Days *(Card Visual)*
 
