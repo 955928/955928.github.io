@@ -4,8 +4,10 @@ title: "Northwind SQL Analysis — From Raw CSV Files to Advanced SQL"
 date: 2026-07-13
 categories: [SQL, Data Analysis, Northwind]
 tags: [SQL Server, SSMS, Northwind, SQL, Data Analysis, BULK INSERT, JOIN, CTE, Subquery]
-image: /assets/images/Northwind/SQL/Northwind_SQL_Analysis.png
+image: assets\images\Northwind\SQL_img\Northwind_SQL_Analysis.png
 ---
+
+
 
 # Introduction
 
@@ -53,7 +55,7 @@ The files I used included:
 
 The first step was therefore to get these CSV files ready to be imported into SQL Server.
 
-![Northwind dataset files](/assets/images/Northwind/SQL/01_dataset_source.png)
+![Northwind dataset files](assets\images\Northwind\SQL_img\Northwind_Datasets_CSV.png)
 
 ---
 
@@ -63,7 +65,7 @@ Before importing the CSV files, I created a dedicated database in **SQL Server M
 
 The purpose was to have a structured environment where I could store the Northwind tables and perform the analysis using SQL.
 
-![Northwind database](/assets/images/Northwind/SQL/03_northwind_database.png)
+![Northwind database](assets/images/Northwind/SQL_img/Northwind_Database.png)
 
 Once the database had been created, I could start working on the individual CSV files.
 
@@ -71,34 +73,55 @@ Once the database had been created, I could start working on the individual CSV 
 
 # 3. Importing the Northwind Dataset
 
-Once the database had been created, the next step was to bring the Northwind CSV files into SQL Server.
+Once the database had been created, the next step was to import the Northwind CSV files into SQL Server.
 
-My first approach was to try importing the CSV files directly through the SQL Server interface.
+My initial approach was to use SQL Server Management Studio's **Import Flat File** functionality. This process created the table structures, but I encountered problems completing the data import successfully.
 
-However, I ran into problems with the import process and was not able to use the standard import method successfully.
+Rather than continuing with the graphical import process, I decided to keep the tables that had already been created and use SQL directly to load the CSV data.
 
-![First import attempt](/assets/images/Northwind/SQL/04_import_attempt.png)
+The final workflow was therefore:
 
-Rather than continuing to rely on the graphical import interface, I decided to take a more direct SQL approach.
-
-This meant creating the tables myself and then importing the contents of the CSV files using SQL.
-
-This approach gave me more control over:
-
-- column names;
-- data types;
-- primary keys;
-- foreign keys;
-- table structure;
-- relationships between tables.
+**CSV files → Import Flat File → Tables created → Import problem → `BULK INSERT` → Data loaded**
 
 ---
 
-# 3.1 Creating the Tables Manually
+## 3.1 First Attempt — Import Flat File
 
-Instead of allowing SQL Server to automatically create the tables from the CSV files, I decided to define the structure myself.
+The **Import Flat File** option seemed like the most straightforward way to bring the Northwind CSV files into SQL Server.
 
-The tables corresponded to the different Northwind CSV files:
+However, the import did not work as expected. I ran into problems during the process and could not get the CSV data imported correctly through the graphical interface.
+
+At this point, I decided that continuing to troubleshoot the wizard was not the most efficient approach.
+
+The useful part was that the tables had already been created during this first attempt.
+
+Therefore, instead of deleting everything and starting again, I kept the existing table structures and changed only the way the data itself was loaded.
+
+This led me to `BULK INSERT`.
+
+---
+
+## 3.2 Loading the Existing Tables with BULK INSERT
+
+With the tables already present in the database, I used SQL Server's `BULK INSERT` statement to load the CSV files directly into them.
+
+The process became:
+
+**Existing table**
+
+↓
+
+**`BULK INSERT`**
+
+↓
+
+**CSV file**
+
+↓
+
+**Data loaded into the table**
+
+I repeated this process for the different Northwind tables:
 
 | CSV file | SQL table |
 |---|---|
@@ -110,71 +133,56 @@ The tables corresponded to the different Northwind CSV files:
 | `products.csv` | `Products` |
 | `shippers.csv` | `Shippers` |
 
-I created the tables directly using `CREATE TABLE`.
+This approach allowed me to bypass the problems I encountered with the graphical import process while keeping the table structures that had already been created.
 
-![Create table query](/assets/images/Northwind/SQL/05_create_table.png)
+It also introduced me to a more direct way of interacting with SQL Server: instead of relying entirely on the interface, I could use SQL statements to control how the data was loaded.
 
-Creating the tables myself meant that I could explicitly define the structure of the database instead of relying on SQL Server to infer it from the CSV files.
-
-This became particularly important when I later defined the primary and foreign keys.
-
+Once the tables were populated, I could move on to the next stage: defining the **primary keys, foreign keys and relationships** between them.
 ---
 
-# 3.2 Importing the CSV Files Using BULK INSERT
+# 3.3 Importing the CSV Data Using BULK INSERT
 
-Once the tables had been created, I needed to populate them with the data contained in the CSV files.
+Instead of using the graphical import wizard, I instructed SQL Server directly to read the CSV files and insert their contents into the existing tables.
 
-For this, I used SQL Server's `BULK INSERT` statement.
+I used the `BULK INSERT` statement.
 
-Instead of importing the files through the graphical wizard, I instructed SQL Server directly to read the CSV files and insert their contents into the corresponding tables.
+The process was therefore:
 
-The process became:
+**Existing SQL table**
 
-**CSV file → `BULK INSERT` → SQL table**
+↓
 
-![BULK INSERT query](/assets/images/Northwind/SQL/06_bulk_insert.png)
+**`BULK INSERT`**
+
+↓
+
+**CSV file**
+
+↓
+
+**Data inserted into table**
+
+![BULK INSERT query](assets\images\Northwind\SQL_img\Import_Table_query.png)
 
 I repeated this process for the different Northwind tables.
 
-The workflow was therefore:
-
-**Create table**
-
-↓
-
-**Define the table structure**
-
-↓
-
-**Use `BULK INSERT`**
-
-↓
-
-**Load the CSV data**
-
-↓
-
-**Verify the imported records**
-
-This was an important part of the project because I was able to understand more clearly what was happening during the import process instead of relying entirely on a graphical interface.
+Using `BULK INSERT` gave me more direct control over the import process and allowed me to see exactly how the CSV data was being loaded into SQL Server.
 
 ---
 
-# 3.3 Verifying the Imported Data
+# 3.4 Verifying the Imported Data
 
-After loading the CSV files, I checked that the data had successfully been inserted into the corresponding tables.
+After using `BULK INSERT`, I checked that the records had successfully been inserted into the corresponding tables.
 
-![Verify imported data](/assets/images/Northwind/SQL/07_verify_import.png)
+![Verify imported data](assets\images\Northwind\SQL_img\Import_Table_Verification.png)
 
 I also checked the tables directly inside SQL Server Management Studio.
 
-![Tables populated with data](/assets/images/Northwind/SQL/08_tables_populated.png)
+At this point, the Northwind CSV files had successfully been loaded into SQL Server.
 
-At this point, the CSV files had successfully been transformed into a structured relational database.
+The next step was therefore no longer about importing the data.
 
-The database was now ready for the next stage:
-
-**defining the relationships between the tables.**
+It was about understanding how the tables were connected.
 
 ---
 
@@ -212,7 +220,7 @@ Other tables such as `Employees`, `Shippers` and `Categories` are connected thro
 
 # 5. Defining Primary Keys
 
-Once the tables had been created and populated, I identified the columns that uniquely identify records within each table.
+Once the data had been successfully imported, I identified the columns that uniquely identify records within each table.
 
 Examples include:
 
@@ -227,9 +235,7 @@ These columns were defined as **Primary Keys**.
 
 A primary key uniquely identifies a record inside a table.
 
-![Primary key definition](/assets/images/Northwind/SQL/09_primary_key.png)
-
-Defining primary keys was important because they would later serve as the reference points for relationships between tables.
+![Primary key definition](assets\images\Northwind\SQL_img\Customers_PK.png)
 
 ---
 
@@ -254,7 +260,7 @@ And another:
 
 **Products.ProductID → Order_Details.ProductID**
 
-![Foreign key definition](/assets/images/Northwind/SQL/10_foreign_key.png)
+![Foreign key definition](assets\images\Northwind\SQL_img\Multiple_FK_Orders.png)
 
 These relationships were particularly important because they would later allow me to combine information from different tables using `JOIN`.
 
@@ -264,7 +270,7 @@ These relationships were particularly important because they would later allow m
 
 Once the keys and relationships had been defined, I could see how the different parts of the database connected.
 
-![Northwind relationship diagram](/assets/images/Northwind/SQL/11_relationship_diagram.png)
+![Northwind relationship diagram](assets\images\Northwind\SQL_img\Northwind_Database.png)
 
 The main structure can be simplified as:
 
@@ -320,7 +326,8 @@ The purpose was simply to retrieve information from a table.
 
 For example, I retrieved customer contact names from the `Customers` table.
 
-![First SELECT query and result](/assets/images/Northwind/SQL/12_select.png)
+![First SELECT query and result](assets\images\Northwind\SQL_img\Query_filtrage_de_base.png)
+![Its result](assets\images\Northwind\SQL_img\Result_query_filtrage_de_base.png)
 
 At this stage, I was learning the basic structure of a SQL query:
 
@@ -345,7 +352,7 @@ This introduced:
 - `AND`;
 - `ORDER BY`.
 
-![WHERE query and result](/assets/images/Northwind/SQL/13_where.png)
+![WHERE query and result](assets\images\Northwind\SQL_img\Query_filtrage_de_base.png)
 
 This represented an important progression because SQL was no longer simply retrieving all records.
 
@@ -365,9 +372,9 @@ I worked with aggregate functions such as:
 - `MIN()`;
 - `MAX()`.
 
-For example, I calculated values such as the average, most expensive and cheapest product prices.
+For example, I calculated values such as the most expensive and cheapest product prices.
 
-![Aggregate functions query and result](/assets/images/Northwind/SQL/14_aggregate.png)
+![Aggregate functions query and result](assets\images\Northwind\SQL_img\Aggregration_simple_query.png)
 
 This represented an important change in the type of analysis.
 
@@ -383,7 +390,7 @@ Instead of asking how many customers existed in total, I wanted to know how many
 
 This introduced the `GROUP BY` clause.
 
-![GROUP BY query and result](/assets/images/Northwind/SQL/15_group_by.png)
+![GROUP BY query and result](assets\images\Northwind\SQL_img\GROUPBY_QUERY.png)
 
 This allowed me to compare different groups within the dataset rather than looking at the dataset as a whole.
 
@@ -401,7 +408,7 @@ For example, an order contains a `CustomerID`, while the customer's name is stor
 
 I therefore needed to connect the two tables.
 
-![First JOIN query and result](/assets/images/Northwind/SQL/16_join.png)
+![First JOIN query and result](assets\images\Northwind\SQL_img\GROUPBY_QUERY.png)
 
 The `JOIN` uses the matching key between the two tables.
 
@@ -420,7 +427,7 @@ The objective was to retrieve information about:
 - the employee;
 - the shipper.
 
-![Multiple JOINs query and result](/assets/images/Northwind/SQL/17_multiple_joins.png)
+![Multiple JOINs query and result](assets\images\Northwind\SQL_img\Join_multitables_query.png)
 
 This demonstrated how several relationships within the database could be combined to create a richer result.
 
