@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Northwind SQL Analysis — From Raw CSV Files to Advanced SQL"
+title: "Northwind SQL Analysis : From Raw CSV Files to Advanced SQL"
 date: 2026-07-13
 categories: [SQL, Data Analysis, Northwind]
 tags: [SQL Server, SSMS, Northwind, SQL, Data Analysis, BULK INSERT, JOIN, CTE, Subquery]
@@ -109,15 +109,17 @@ I therefore created the Northwind tables directly in SQL Server before importing
 
 The tables corresponded to the different CSV files:
 
-| CSV file | SQL table |
-| :--- | :--- |
-| `categories.csv` | `Categories` |
-| `customers.csv` | `Customers` |
-| `employees.csv` | `Employees` |
+| CSV file            | SQL table       |
+| :------------------ | :-------------- |
+| `categories.csv`    | `Categories`    |
+| `customers.csv`     | `Customers`     |
+| `employees.csv`     | `Employees`     |
 | `order_details.csv` | `Order_Details` |
-| `orders.csv` | `Orders` |
-| `products.csv` | `Products` |
-| `shippers.csv` | `Shippers` |
+| `orders.csv`        | `Orders`        |
+| `products.csv`      | `Products`      |
+| `shippers.csv`      | `Shippers`      |
+
+![Northwind tables created in SSMS](assets/images/Northwind/SQL_img/Northwind_SSMS_Explorer.png)
 
 Creating the tables first meant that I could define the database structure myself rather than relying on SQL Server to infer everything from the CSV files.
 
@@ -134,6 +136,8 @@ Instead of importing the files through a graphical wizard, I instructed SQL Serv
 The general process was:
 
 CSV file → BULK INSERT → SQL table
+
+![BULK INSERT queries](assets/images/Northwind/SQL_img/Import_Table_query.png)
 
 I repeated the same process for the other Northwind tables.
 
@@ -154,6 +158,8 @@ This approach gave me a better understanding of what was actually happening duri
 # 3.4 Verifying the Imported Data
 
 After loading each CSV file, I checked that the data had actually been inserted into the corresponding table.
+
+![Verifying imported row counts](assets/images/Northwind/SQL_img/Import_Table_Verification.png)
 
 I also checked the tables inside SQL Server Management Studio.
 
@@ -210,6 +216,8 @@ These columns were defined as **Primary Keys**.
 
 A primary key uniquely identifies a record inside a table.
 
+![CustomerID primary key](assets/images/Northwind/SQL_img/Customers_PK.png)
+
 A good example would be the `Customers` table with `CustomerID` identified as the primary key.
 
 # 6. Defining Foreign Keys and Relationships
@@ -232,6 +240,8 @@ Another relationship is:
 And another:
 
 **Products.ProductID → Order_Details.ProductID**
+
+![Foreign keys in the Orders table](assets/images/Northwind/SQL_img/Multiple_FK_Orders.png)
 
 This step was particularly important because these relationships would later be used when writing `JOIN` queries.
 
@@ -278,6 +288,10 @@ This introduced:
 * `AND`;
 * `ORDER BY`.
 
+![WHERE filtering query](assets/images/Northwind/SQL_img/Query_filtrage_de_base.png)
+
+![WHERE filtering result](assets/images/Northwind/SQL_img/Result_query_filtrage_de_base.png)
+
 This represented an important progression because SQL was no longer simply retrieving all records.
 
 I was now asking SQL to return only records matching specific conditions.
@@ -296,6 +310,8 @@ I worked with aggregate functions such as:
 
 For example, I calculated the most expensive and cheapest products.
 
+![Aggregate functions query and result](assets/images/Northwind/SQL_img/Aggregration_simple_query.png)
+
 This represented an important change in the type of analysis.
 
 Instead of returning individual records, SQL was now calculating a metric from the dataset.
@@ -310,7 +326,7 @@ This introduced the `GROUP BY` clause.
 
 This allowed me to compare different groups within the dataset rather than looking at the dataset as a whole.
 
-# 12. JOIN Connecting Tables
+# 12. JOIN : Connecting Tables
 
 At this point, I had mainly been working with individual tables.
 
@@ -337,9 +353,11 @@ The objective was to retrieve information about:
 * the employee;
 * the shipper.
 
+![Multiple JOINs query and result](assets/images/Northwind/SQL_img/Join_multitables_query.png)
+
 This demonstrated how several relationships within the database could be combined to create a richer result.
 
-# 14. JOIN + WHERE Answering a Business Question
+# 14. JOIN + WHERE : Answering a Business Question
 
 I then combined the concepts I had learned so far.
 
@@ -367,6 +385,8 @@ Using the order details, I calculated revenue using:
 
 I then used this calculation to identify the categories generating the highest revenue.
 
+![Revenue by category query and result](assets/images/Northwind/SQL_img/GROUPBY_QUERY.png)
+
 This query combined several concepts that I had previously learned individually:
 
 * `JOIN`;
@@ -383,7 +403,7 @@ to:
 
 Which categories generate the most revenue?
 
-# 16. LEFT JOIN — Finding Missing Relationships
+# 16. LEFT JOIN : Finding Missing Relationships
 
 I then used JOINs for another type of problem.
 
@@ -393,9 +413,11 @@ This introduced the combination of:
 
 **LEFT JOIN + IS NULL**
 
+![LEFT JOIN finding customers with no orders](assets/images/Northwind/SQL_img/Left_Join_Query_find_abscence.png)
+
 This demonstrated that JOINs can also be used to identify missing relationships between tables.
 
-# 17. Subqueries — Comparing Against an Average
+# 17. Subqueries : Comparing Against an Average
 
 After becoming comfortable with joins and aggregations, I moved towards more advanced SQL logic.
 
@@ -404,6 +426,8 @@ The question was:
 Which products are more expensive than the average product price?
 
 This required a query inside another query.
+
+![Subquery comparing against average price](assets/images/Northwind/SQL_img/Sous_requete_simple.png)
 
 The inner query calculates the average product price.
 
@@ -422,6 +446,8 @@ I then increased the complexity further.
 Instead of comparing every product against the average price of all products, I wanted to compare each product against the average price of products within its own category.
 
 This required a **correlated subquery**.
+
+![Correlated subquery by category average](assets/images/Northwind/SQL_img/Sous_requete_corrélé.png)
 
 The important difference is that the inner query refers back to the current row of the outer query.
 
@@ -453,6 +479,8 @@ Once I understood CTEs, I combined them with a window function.
 
 The objective was to calculate cumulative sales over time.
 
+![CTE with window function for cumulative sales](assets/images/Northwind/SQL_img/CTE_SIMPLE_avec_fonctiondefenetrage.png)
+
 The result allowed me to compare:
 
 * the revenue generated during each individual month;
@@ -475,6 +503,8 @@ To answer this, I used:
 * `LAG()`;
 * calculated columns;
 * percentage calculations.
+
+![CTE with LAG for month-over-month growth](assets/images/Northwind/SQL_img/CTE_double_LAG.png)
 
 The logic can be simplified as:
 
@@ -600,7 +630,7 @@ I was using SQL to answer questions about customers, products, orders, revenue a
 
 This established the analytical foundation for the second part of the project.
 
-# Part 2 — Connecting SQL Server to Power BI
+# Part 2: Connecting SQL Server to Power BI
 
 The next stage of the project will move away from SQL syntax and towards visualization.
 
@@ -629,7 +659,7 @@ How can I transform this analysis into an interactive Power BI report?
 
 This project will therefore be divided into two major stages.
 
-## Part 1 — SQL Analysis
+## Part 1: SQL Analysis
 
 **Raw CSV files**
 
@@ -655,7 +685,7 @@ This project will therefore be divided into two major stages.
 
 **Advanced SQL analysis**
 
-## Part 2 — Power BI Analysis
+## Part 2: Power BI Analysis
 
 **SQL Server**
 
