@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Northwind SQL Analysis : From Raw CSV Files to Advanced SQL"
-date: 2026-07-13
+date: 2026-08-08
 categories: [SQL, Data Analysis, Northwind]
 tags: [SQL Server, SSMS, Northwind, SQL, Data Analysis, BULK INSERT, JOIN, CTE, Subquery]
 image: assets/images/Northwind/SQL_img/Northwind_SQL_Analysis.png
