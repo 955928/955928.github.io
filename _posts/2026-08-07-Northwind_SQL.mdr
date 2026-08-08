@@ -77,66 +77,40 @@ Once the database had been created, I could start working on the individual CSV 
 
 # 3. Importing the Northwind Dataset
 
-Importing the CSV files did not go exactly as planned.
+Once the database had been created, the next step was to bring the Northwind CSV files into SQL Server.
 
-My initial approach was to use SQL Server Management Studio's **Import Flat File** functionality.
+My first approach was to try importing the CSV files directly through the SQL Server interface.
 
-The advantage of this approach was that SQL Server could create the table structures from the CSV files during the import process.
+However, I ran into problems with the import process and was not able to use the standard import method successfully.
 
-However, I encountered problems during the import and was not able to complete the process successfully using the graphical interface.
+Rather than continuing to rely on the graphical import interface, I decided to take a more direct SQL approach.
 
-Instead of continuing to fight with the import wizard, I decided to keep the tables that had already been created during the first attempt and change the way the actual data was loaded.
+This meant creating the tables myself and then importing the contents of the CSV files using SQL.
 
-The final workflow was therefore:
+# 3.1 First Attempt Importing the CSV Files
 
-**CSV files → Import Flat File → Tables created → Import problems → `BULK INSERT` → Data loaded**
+My initial approach was to use the SQL Server import functionality to bring the CSV files directly into the database.
 
-This was actually useful from a learning perspective because I was able to see both approaches and understand that importing data does not necessarily have to be done through a graphical interface.
+This approach did not work as expected, so I changed the method I was using.
 
----
+Instead of allowing SQL Server to automatically create the tables from the CSV files, I decided to define the table structure myself.
 
-## 3.1 First Attempt — Import Flat File
+This also gave me more control over:
 
-The **Import Flat File** option initially seemed like the most straightforward solution.
+* column names;
+* data types;
+* primary keys;
+* foreign keys;
+* the structure of each table.
 
-The process successfully got me to the point where the tables existed in the database, but I encountered problems when trying to complete the import of the CSV data.
+# 3.2 Creating the Tables Manually
 
-Rather than deleting the tables and starting the entire process again, I kept the tables that had already been created.
+I therefore created the Northwind tables directly in SQL Server before importing the data.
 
-This meant that I only needed to solve the second part of the problem:
-
-**How do I get the CSV data into the tables that already exist?**
-
-The solution was to use SQL directly with `BULK INSERT`.
-
----
-
-## 3.2 Loading the Existing Tables with BULK INSERT
-
-With the tables already present in the database, I used SQL Server's `BULK INSERT` statement to load the CSV files directly into them.
-
-The process became:
-
-**Existing SQL table**
-
-↓
-
-**`BULK INSERT`**
-
-↓
-
-**CSV file**
-
-↓
-
-**Data inserted into table**
-
-![BULK INSERT query](assets/images/Northwind/SQL_img/Import_Table_query.png)
-
-I repeated this process for the different Northwind tables:
+The tables corresponded to the different CSV files:
 
 | CSV file | SQL table |
-|---|---|
+| :--- | :--- |
 | `categories.csv` | `Categories` |
 | `customers.csv` | `Customers` |
 | `employees.csv` | `Employees` |
@@ -145,23 +119,49 @@ I repeated this process for the different Northwind tables:
 | `products.csv` | `Products` |
 | `shippers.csv` | `Shippers` |
 
-Using `BULK INSERT` gave me more direct control over the import process and allowed me to see how SQL Server was loading the CSV data into the existing tables.
+Creating the tables first meant that I could define the database structure myself rather than relying on SQL Server to infer everything from the CSV files.
 
----
+This became particularly important when I later defined the primary and foreign keys.
 
-## 3.3 Verifying the Imported Data
+# 3.3 Importing the CSV Files Using BULK INSERT
 
-After using `BULK INSERT`, I checked that the records had successfully been inserted into the corresponding tables.
+Once the tables had been created, I needed to populate them with the data contained in the CSV files.
 
-![Verify imported data](assets/images/Northwind/SQL_img/Import_Table_Verification.png)
+For this, I used SQL Server's `BULK INSERT` statement.
 
-I also checked the tables directly inside SQL Server Management Studio.
+Instead of importing the files through a graphical wizard, I instructed SQL Server directly to read the CSV files and insert their contents into the corresponding tables.
 
-At this point, the Northwind CSV files had successfully been loaded into SQL Server.
+The general process was:
 
-The next step was therefore to understand how the tables were connected.
+CSV file → BULK INSERT → SQL table
 
----
+I repeated the same process for the other Northwind tables.
+
+The process therefore became:
+
+Create table
+
+Specify the table structure
+
+Use `BULK INSERT`
+
+Load the CSV data
+
+Verify the imported records
+
+This approach gave me a better understanding of what was actually happening during data import instead of relying entirely on a graphical interface.
+
+# 3.4 Verifying the Imported Data
+
+After loading each CSV file, I checked that the data had actually been inserted into the corresponding table.
+
+I also checked the tables inside SQL Server Management Studio.
+
+At this point, the CSV files had successfully been transformed into a structured relational database.
+
+The database was now ready for the next stage:
+
+defining the relationships between the tables.
 
 # 4. Understanding the Database Structure
 
@@ -191,34 +191,26 @@ A simplified representation is therefore:
 
 **Customers → Orders → Order_Details → Products**
 
-Other tables such as `Employees`, `Shippers` and `Categories` connect to the rest of the database through their respective keys.
-
-Understanding these relationships was essential because they would later become the foundation for my `JOIN` queries.
-
----
+Other tables such as `Employees`, `Shippers` and `Categories` are connected through their respective keys.
 
 # 5. Defining Primary Keys
 
-Once the data had been imported, I identified the columns that uniquely identify records within each table.
+Once the tables had been created and populated, I identified the columns that uniquely identify records within each table.
 
 Examples include:
 
-- `Customers` → `CustomerID`
-- `Orders` → `OrderID`
-- `Products` → `ProductID`
-- `Employees` → `EmployeeID`
-- `Categories` → `CategoryID`
-- `Shippers` → `ShipperID`
+* `Customers` → `CustomerID`
+* `Orders` → `OrderID`
+* `Products` → `ProductID`
+* `Employees` → `EmployeeID`
+* `Categories` → `CategoryID`
+* `Shippers` → `ShipperID`
 
 These columns were defined as **Primary Keys**.
 
 A primary key uniquely identifies a record inside a table.
 
-![Customers primary key](assets/images/Northwind/SQL_img/Customers_PK.png)
-
-For example, `CustomerID` uniquely identifies each customer in the `Customers` table.
-
----
+A good example would be the `Customers` table with `CustomerID` identified as the primary key.
 
 # 6. Defining Foreign Keys and Relationships
 
@@ -230,8 +222,8 @@ For example:
 
 Here:
 
-- `Customers.CustomerID` is the primary key.
-- `Orders.CustomerID` is the foreign key.
+* `Customers.CustomerID` is the primary key.
+* `Orders.CustomerID` is the foreign key.
 
 Another relationship is:
 
@@ -241,579 +233,397 @@ And another:
 
 **Products.ProductID → Order_Details.ProductID**
 
-![Foreign keys in Orders](assets/images/Northwind/SQL_img/Multiple_FK_Orders.png)
-
-These relationships were particularly important because they would later allow me to combine information from different tables using `JOIN`.
-
----
-
-# 6.1 The Northwind Relationship Structure
-
-Once the keys and relationships had been defined, I could see how the different parts of the database connected inside SQL Server Management Studio.
-
-![Northwind tables in SSMS](assets/images/Northwind/SQL_img/Northwind_SSMS_Explorer.png)
-
-The main structure can be simplified as:
-
-**Customers**
-
-↓
-
-**Orders**
-
-↓
-
-**Order_Details**
-
-↓
-
-**Products**
-
-While other tables such as:
-
-**Employees**
-
-**Shippers**
-
-**Categories**
-
-connect to the relevant tables through their own keys.
-
-Understanding this structure was essential before beginning the SQL analysis.
-
----
+This step was particularly important because these relationships would later be used when writing `JOIN` queries.
 
 # 7. Starting the SQL Analysis
 
 Once the database had been imported, structured and connected, I could finally begin analysing the data.
 
-I deliberately started with relatively simple queries and increased the complexity progressively.
+I deliberately started with very simple queries.
+
+The objective was to build my understanding progressively rather than immediately jumping into complicated analytical queries.
 
 The progression was:
 
-**Filtering → Pattern matching → Aggregation → GROUP BY → JOINs → LEFT JOIN → Subqueries → Correlated subqueries → Nested subqueries → CTEs → Window functions**
+**SELECT → WHERE → ORDER BY → Aggregations → GROUP BY → JOINs → Subqueries → CTEs → Window Functions**
 
-Rather than showing every exercise I completed, I selected a series of queries that demonstrate this progression.
+The following sections show selected examples from that progression.
 
-The idea is that each example introduces something new.
+# 8. Basic Data Retrieval — SELECT
 
----
+The first concept I worked with was `SELECT`.
 
-# 8. Basic Filtering with WHERE
+The purpose was simply to retrieve information from a table.
 
-The first example demonstrates one of the most fundamental SQL concepts: filtering rows using `WHERE`.
+For example, I retrieved customer contact names from the `Customers` table.
 
-The question was:
+At this stage, I was learning the basic structure of a SQL query:
 
-> Which products have a unit price between 20 and 50?
+**SELECT → FROM → Table**
 
-This query combines:
+The query was simple, but it established the foundation for everything that followed.
 
-- `WHERE`;
-- comparison operators;
-- `AND`;
-- `ORDER BY`.
+# 9. Filtering Data with WHERE
 
-![Basic filtering query](assets/images/Northwind/SQL_img/Query_filtrage_de_base.png)
+Once I understood how to retrieve data, I moved on to filtering.
 
-![Basic filtering result](assets/images/Northwind/SQL_img/Result_query_filtrage_de_base.png)
+The next question was more specific:
 
-This was an important starting point because I was no longer simply retrieving everything from a table.
+Which products have a unit price between 20 and 50?
 
-I was asking SQL to return only the records that satisfied specific conditions.
+This introduced:
 
-The basic logic was:
+* `WHERE`;
+* comparison operators;
+* `AND`;
+* `ORDER BY`.
 
-**SELECT → FROM → WHERE → ORDER BY**
+This represented an important progression because SQL was no longer simply retrieving all records.
 
----
-
-# 9. Pattern Matching with LIKE
-
-After basic filtering, I moved on to pattern matching.
-
-The question was:
-
-> Which products have names beginning with the letter C?
-
-This introduced the `LIKE` operator and the `%` wildcard.
-
-![LIKE query and result](assets/images/Northwind/SQL_img/Like_query.png)
-
-The `%` symbol represents any sequence of characters.
-
-Therefore:
-
-**`'C%'`**
-
-means that the product name must begin with `C`, followed by any number of characters.
-
-This was a small step beyond simple comparisons because SQL was now being used to search for patterns within text.
-
----
+I was now asking SQL to return only records matching specific conditions.
 
 # 10. Aggregate Functions
 
-The next step was to stop looking only at individual rows and start calculating metrics from the dataset.
+After learning how to retrieve and filter individual records, I started looking at the data from a more analytical perspective.
 
 I worked with aggregate functions such as:
 
-- `COUNT()`;
-- `SUM()`;
-- `AVG()`;
-- `MIN()`;
-- `MAX()`.
+* `COUNT()`;
+* `SUM()`;
+* `AVG()`;
+* `MIN()`;
+* `MAX()`.
 
-For this example, I used `MAX()` and `MIN()` to identify the highest and lowest product prices.
-
-![Aggregation query and result](assets/images/Northwind/SQL_img/Aggregration_simple_query.png)
+For example, I calculated the most expensive and cheapest products.
 
 This represented an important change in the type of analysis.
 
-Instead of returning individual records, SQL was now calculating information **about the dataset as a whole**.
+Instead of returning individual records, SQL was now calculating a metric from the dataset.
 
----
+# 11. GROUP BY
 
-# 11. GROUP BY and Revenue Calculation
+The next step was to group information.
 
-The next step was to analyse information by category rather than across the entire dataset.
+Instead of asking how many customers existed in total, I wanted to know how many customers existed in each country.
 
-I wanted to determine which product categories generated the most revenue.
+This introduced the `GROUP BY` clause.
 
-To calculate revenue, I used the following formula:
+This allowed me to compare different groups within the dataset rather than looking at the dataset as a whole.
 
-**Unit Price × Quantity × (1 − Discount)**
+# 12. JOIN Connecting Tables
 
-This formula will be used throughout the project whenever revenue is calculated from `Order_Details`.
+At this point, I had mainly been working with individual tables.
 
-The query then combines:
+However, one of the main advantages of a relational database is the ability to combine information from multiple tables.
 
-- `JOIN`;
-- `SUM()`;
-- a calculated expression;
-- `GROUP BY`;
-- `ORDER BY`.
+This is where `JOIN` became essential.
 
-![GROUP BY revenue query and result](assets/images/Northwind/SQL_img/GROUPBY_QUERY.png)
+For example, an order contains a `CustomerID`, while the customer's name is stored in the `Customers` table.
 
-The result allowed me to compare the total sales generated by each product category.
+I therefore needed to connect the two tables.
 
-This was the point where SQL started becoming more analytical.
+The JOIN uses the matching key between the two tables.
 
-I was moving from:
+This was the point where the relationships created during the database setup became directly useful for analysis.
 
-> **"What information is stored in the database?"**
+# 13. Multiple JOINs
 
-towards:
-
-> **"What can I learn from the information stored in the database?"**
-
----
-
-# 12. Multiple-Table JOIN
-
-At this stage, I needed to work with the relational structure of Northwind.
+After understanding a basic JOIN, I increased the complexity by joining several tables together.
 
 The objective was to retrieve information about:
 
-- the order;
-- the customer;
-- the employee;
-- the shipper.
+* the order;
+* the customer;
+* the employee;
+* the shipper.
 
-This required joining four different tables.
+This demonstrated how several relationships within the database could be combined to create a richer result.
 
-![Multiple-table JOIN query and result](assets/images/Northwind/SQL_img/Join_multitables_query.png)
+# 14. JOIN + WHERE Answering a Business Question
 
-The query uses the relationships established earlier:
+I then combined the concepts I had learned so far.
 
-**Orders → Customers**
+The question became:
 
-**Orders → Employees**
+Which products have been purchased by customers from Germany?
 
-**Orders → Shippers**
+To answer this, I needed to connect:
 
-This demonstrated one of the main strengths of a relational database: information stored in separate tables can be combined when the correct relationships exist between them.
+**Customers → Orders → Order_Details → Products**
 
----
+This represented an important change in the way I was using SQL.
 
-# 13. LEFT JOIN — Finding Missing Relationships
+I was no longer writing queries only to practise SQL syntax.
 
-I then used `LEFT JOIN` for a different type of question.
+I was beginning to use SQL to answer actual business questions.
 
-Instead of looking for records that successfully matched between two tables, I wanted to identify customers who had **never placed an order**.
+# 15. Calculating Revenue
 
-The logic was:
+The next stage was to create an actual business metric.
 
-**Customers**
+Using the order details, I calculated revenue using:
 
-↓
+**Unit Price × Quantity × (1 − Discount)**
 
-**LEFT JOIN Orders**
+I then used this calculation to identify the categories generating the highest revenue.
 
-↓
+This query combined several concepts that I had previously learned individually:
 
-**Keep customers where no matching OrderID exists**
+* `JOIN`;
+* `SUM()`;
+* calculations;
+* `GROUP BY`;
+* `ORDER BY`.
 
-![LEFT JOIN query and result](assets/images/Northwind/SQL_img/Left_join_Query_find_absence.png)
+The question had now evolved from:
 
-The key part of the query is:
+What data is in the database?
 
-`WHERE O.CustomerID IS NULL`
+to:
 
-This filters the result to customers for whom no corresponding order was found.
+Which categories generate the most revenue?
 
-This demonstrated that `JOIN`s are not only useful for combining information.
+# 16. LEFT JOIN — Finding Missing Relationships
 
-They can also be used to identify **missing relationships** in a dataset.
+I then used JOINs for another type of problem.
 
----
+Instead of looking for records that matched between tables, I wanted to identify customers who had never placed an order.
 
-# 14. Simple Subquery — Comparing Against an Average
+This introduced the combination of:
 
-After becoming more comfortable with filtering, aggregation and joins, I moved towards more advanced SQL logic.
+**LEFT JOIN + IS NULL**
+
+This demonstrated that JOINs can also be used to identify missing relationships between tables.
+
+# 17. Subqueries — Comparing Against an Average
+
+After becoming comfortable with joins and aggregations, I moved towards more advanced SQL logic.
 
 The question was:
 
-> Which products are more expensive than the average product price?
+Which products are more expensive than the average product price?
 
 This required a query inside another query.
 
-![Simple subquery query and result](assets/images/Northwind/SQL_img/Sous_requete_simple.png)
-
 The inner query calculates the average product price.
 
-The outer query then compares each product's price against that value.
+The outer query then compares each product against that value.
 
 The logic is:
 
-**Calculate average → Compare products → Keep products above average**
+Calculate average → Compare products → Keep products above average
 
-This was an important progression because one query was now producing a value that another query could use.
+This was an important step because SQL was now being used to produce one result and then use that result as part of another calculation.
 
----
-
-# 15. Correlated Subquery
+# 18. Correlated Subqueries
 
 I then increased the complexity further.
 
-Instead of comparing every product against the average price of **all products**, I wanted to compare each product against the average price of products **within its own category**.
+Instead of comparing every product against the average price of all products, I wanted to compare each product against the average price of products within its own category.
 
-This required a correlated subquery.
-
-![Correlated subquery query and result](assets/images/Northwind/SQL_img/Sous_requete_corrélé.png)
+This required a **correlated subquery**.
 
 The important difference is that the inner query refers back to the current row of the outer query.
 
-The average is therefore calculated according to the product's category.
+This meant that the average was calculated according to the product's category.
 
 The progression was now:
 
 **Basic query → Aggregate → Subquery → Correlated subquery**
 
-This was a significant step because the result of the inner query was no longer completely independent from the outer query.
-
----
-
-# 16. Nested Subqueries and JOIN on an Aggregate
-
-The next query increased the complexity again.
-
-The objective was to identify the **best-selling product within each category**.
-
-This required several levels of logic.
-
-First, I calculated total sales for each product.
-
-Then I calculated the maximum sales value for each category.
-
-Finally, I joined those results together to identify which product corresponded to the maximum value.
-
-![Nested subqueries and aggregate JOIN](assets/images/Northwind/SQL_img/Sous_requete_imbriqué_et_JOIN_agrégat.png)
-
-The logic can be simplified as:
-
-**Calculate product sales**
-
-↓
-
-**Find maximum sales per category**
-
-↓
-
-**Match products to their category maximum**
-
-↓
-
-**Return the best-selling product**
-
-This query was considerably more complex than the earlier examples because several intermediate results had to work together.
-
-It also demonstrated why understanding `JOIN`, aggregation and subqueries individually was important before attempting a query like this.
-
----
-
-# 17. CTE with a Window Function — Cumulative Sales
+# 19. Common Table Expressions (CTEs)
 
 As the analytical questions became more complicated, I needed a way to structure my queries into clearer steps.
 
-This led me to **Common Table Expressions**, or **CTEs**.
+This led me to **Common Table Expressions**, commonly called CTEs.
 
-The first CTE example calculates monthly sales and then uses a window function to calculate cumulative sales.
+I first used a CTE to calculate monthly sales.
 
-![CTE with window function](assets/images/Northwind/SQL_img/CTE_SIMPLE_avec_fonctiondefenetrage.png)
+A CTE allowed me to create an intermediate result that could then be used by the main query.
 
-The logic is:
+The logical structure became:
 
-**Orders + Order_Details**
+**Orders + Order_Details → Monthly Sales → Further Analysis**
 
-↓
+This made more complex queries easier to organise.
 
-**Calculate monthly revenue**
+# 20. CTE + Window: Function Cumulative Sales
 
-↓
+Once I understood CTEs, I combined them with a window function.
 
-**Use a window function**
+The objective was to calculate cumulative sales over time.
 
-↓
+The result allowed me to compare:
 
-**Calculate cumulative revenue**
+* the revenue generated during each individual month;
+* the revenue accumulated up to that month.
 
-The result allows me to see both:
+This was another major progression because I was now analysing values across rows while preserving the individual monthly records.
 
-- the revenue generated during each individual month;
-- the revenue accumulated up to that month.
+# 21. Final SQL Analysis: Month-over-Month Growth
 
-This was an important progression because I was now analysing values **across rows** while still keeping the individual monthly records.
-
----
-
-# 18. CTE + LAG() — Month-over-Month Growth
-
-For the final and most advanced example in this part of the project, I wanted to calculate how sales changed compared with the previous month.
+For the final stage of this SQL analysis, I wanted to calculate how sales changed compared with the previous month.
 
 The question was:
 
-> How much did sales increase or decrease compared with the previous month?
+How much did sales increase or decrease compared with the previous month?
 
 To answer this, I used:
 
-- two CTEs;
-- aggregation;
-- the `LAG()` window function;
-- calculated columns;
-- percentage calculations.
-
-![CTE double and LAG query](assets/images/Northwind/SQL_img/CTE_double_LAG.png)
+* CTEs;
+* aggregation;
+* `LAG()`;
+* calculated columns;
+* percentage calculations.
 
 The logic can be simplified as:
 
-**Calculate monthly sales**
+Calculate monthly sales
 
-↓
+Retrieve previous month's sales
 
-**Retrieve the previous month's sales**
+Compare current month against previous month
 
-↓
+Calculate percentage growth
 
-**Compare current month against previous month**
+The `LAG()` function allowed me to access the previous month's value while keeping the current month's row.
 
-↓
+This represented the most advanced SQL analysis of this first part of the project.
 
-**Calculate percentage growth**
-
-The first CTE calculates monthly sales.
-
-The second CTE uses `LAG()` to retrieve the previous month's sales.
-
-The final query then compares the two values and calculates the percentage growth.
-
-The `LAG()` function was particularly useful because it allowed me to access the previous month's value while keeping the current month's row.
-
-This represented the most advanced SQL analysis I selected for this first part of the project.
-
----
-
-# 19. The Progression of My SQL Learning
+# 22. The Progression of My SQL Learning
 
 Looking back at the project, the queries were not isolated exercises.
 
-I selected them because together they demonstrate a progression in my understanding of SQL.
+They formed a progression in my understanding of SQL.
 
 The development can be summarised as:
 
 **Database creation**
 
-↓
-
-**CSV import**
-
-↓
-
-**BULK INSERT**
-
-↓
+**CSV import using BULK INSERT**
 
 **Primary and foreign keys**
 
-↓
-
 **Relationships**
 
-↓
+**SELECT**
 
-**Filtering with WHERE**
+**WHERE**
 
-↓
-
-**Pattern matching with LIKE**
-
-↓
+**ORDER BY**
 
 **Aggregate functions**
 
-↓
-
 **GROUP BY**
 
-↓
+**JOIN**
 
-**Multiple-table JOINs**
+**Multiple JOINs**
 
-↓
+**Business calculations**
 
 **LEFT JOIN**
 
-↓
-
 **Subqueries**
-
-↓
 
 **Correlated subqueries**
 
-↓
-
-**Nested subqueries**
-
-↓
-
 **CTEs**
-
-↓
 
 **Window functions**
 
-↓
-
 **LAG()**
-
-↓
 
 **Month-over-month analysis**
 
 The important progression was therefore not simply learning more SQL commands.
 
-It was learning how to **combine different SQL concepts to answer increasingly complex questions**.
+It was learning how to combine these concepts to answer increasingly complex questions.
 
 I started with:
 
-> **How do I retrieve and filter information?**
+How do I retrieve information?
 
 Then:
 
-> **How do I summarise the data?**
+How do I filter and summarise information?
 
 Then:
 
-> **How do I combine information from different tables?**
-
-Then:
-
-> **How can I identify missing relationships?**
-
-Then:
-
-> **How can one query use the result of another query?**
+How do I combine information from different tables?
 
 And finally:
 
-> **How can I perform more advanced time-based business analysis?**
-
----
+How can I use SQL to perform actual business analysis?
 
 # Conclusion
 
-This first part of the Northwind project allowed me to work through the SQL analysis process from the initial dataset to increasingly advanced analytical queries.
+This first part of the Northwind project allowed me to work through the SQL analysis process from the database setup to advanced analytical queries.
 
-I started with the raw CSV files and initially attempted to import them using SQL Server's **Import Flat File** functionality.
+I started with the raw CSV files.
 
-Although this process created the tables, I encountered problems completing the import successfully.
+My initial attempt was to import them directly through SQL Server, but after encountering problems with that approach, I changed my method.
 
-Instead of starting again from scratch, I kept the tables that had already been created and used `BULK INSERT` to load the CSV data directly into them.
+Instead, I created the tables myself and used `BULK INSERT` to load the CSV data into SQL Server.
 
-This gave me a more direct understanding of how data is loaded into SQL Server.
+This gave me a better understanding of the database structure and allowed me to control the tables before establishing their relationships.
 
-Once the data was available, I worked on the database structure by identifying primary keys, defining foreign keys and understanding the relationships between the different tables.
+I then identified the primary keys, defined the foreign keys and created the relationships between the different tables.
 
-I could then begin the SQL analysis.
+From there, I progressively developed my SQL analysis.
 
-The selected exercises show a progression from relatively simple concepts:
+The progression took me from:
 
-**WHERE → LIKE → Aggregation**
+**Basic data retrieval**
 
 to:
 
-**GROUP BY → JOIN → LEFT JOIN**
+**Filtering and aggregation**
 
-and finally towards more advanced SQL:
+then:
 
-**Subqueries → Correlated subqueries → Nested subqueries → CTEs → Window functions → LAG()**
+**Grouping and JOINs**
 
-The final month-over-month growth query represents the most advanced stage of this SQL analysis.
+then:
+
+**Business calculations**
+
+and finally:
+
+**Subqueries, CTEs and window functions**
+
+The final month-over-month analysis represents the most advanced SQL stage of this project.
 
 More importantly, I was no longer simply practising SQL syntax.
 
-I was using SQL to answer questions about:
+I was using SQL to answer questions about customers, products, orders, revenue and sales performance.
 
-- products;
-- customers;
-- orders;
-- categories;
-- revenue;
-- sales performance;
-- and changes in sales over time.
-
-This established the SQL foundation for the next stage of the project.
-
----
+This established the analytical foundation for the second part of the project.
 
 # Part 2 — Connecting SQL Server to Power BI
 
-The next stage of the project will move from SQL analysis towards **data visualisation and business intelligence**.
+The next stage of the project will move away from SQL syntax and towards visualization.
 
-Now that the Northwind database has been structured and analysed using SQL Server, I can use it as the foundation for a Power BI project.
+Now that the database has been structured and analysed using SQL Server, I can use it as the foundation for a Power BI project.
 
 The next part will focus on:
 
-- connecting Power BI to SQL Server;
-- importing the required tables;
-- checking the existing relationships;
-- preparing the data model;
-- creating DAX measures;
-- building visualisations;
-- analysing the results;
-- creating the final interactive dashboard.
+* Connecting Power BI to SQL Server;
+* importing the required tables;
+* checking the existing relationships;
+* preparing the data model;
+* creating DAX measures;
+* building visualizations;
+* analysing the results;
+* creating the final interactive dashboard.
 
 The question will therefore change from:
 
-> **How can I analyse the data using SQL?**
+How can I analyse the data using SQL?
 
 to:
 
-> **How can I transform this data and analysis into an interactive Power BI report?**
-
----
+How can I transform this analysis into an interactive Power BI report?
 
 # Project Progression
 
@@ -823,102 +633,40 @@ This project will therefore be divided into two major stages.
 
 **Raw CSV files**
 
-↓
-
 **SQL Server database**
 
-↓
-
-**Import Flat File attempt**
-
-↓
-
-**Existing table structures**
-
-↓
+**Manual table creation**
 
 **BULK INSERT**
 
-↓
-
 **Primary and foreign keys**
-
-↓
 
 **Relationships**
 
-↓
-
-**Filtering**
-
-↓
-
-**Aggregation**
-
-↓
-
-**GROUP BY**
-
-↓
+**Basic SQL**
 
 **JOINs**
 
-↓
-
-**LEFT JOIN**
-
-↓
-
 **Subqueries**
-
-↓
-
-**Correlated subqueries**
-
-↓
-
-**Nested subqueries**
-
-↓
 
 **CTEs**
 
-↓
-
 **Window Functions**
 
-↓
-
-**LAG()**
-
-↓
-
 **Advanced SQL analysis**
-
----
 
 ## Part 2 — Power BI Analysis
 
 **SQL Server**
 
-↓
-
 **Power BI connection**
-
-↓
 
 **Data model**
 
-↓
-
 **DAX**
-
-↓
 
 **Visualisations**
 
-↓
-
 **Dashboard**
 
-The objective is to show the complete journey from **raw relational data to a finished analytical report**.
+The objective is to show the complete journey from raw relational data to a finished analytical report.
