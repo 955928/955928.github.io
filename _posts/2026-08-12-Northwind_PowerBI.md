@@ -936,3 +936,6 @@ The final process can therefore be summarised as:
 The project ultimately allowed me to move from simply querying data to presenting that data in a format that can be explored, filtered and interpreted interactively.
 
 This completes the Northwind SQL to Power BI project.
+
+
+*Thank you for taking the time to explore this project. It forms part of my data analytics portfolio and showcases my ability to work with a relational database in SQL Server and transform that analysis into an interactive Power BI report. Feedback and suggestions are always welcome.*
