@@ -939,3 +939,5 @@ This completes the Northwind SQL to Power BI project.
 
 
 *Thank you for taking the time to explore this project. It forms part of my data analytics portfolio and showcases my ability to work with a relational database in SQL Server and transform that analysis into an interactive Power BI report. Feedback and suggestions are always welcome.*
+
+*This project was built using the Northwind sample dataset, with SQL Server as the data source and Power BI Desktop for the analysis and reporting, as part of my ongoing data portfolio.*
