@@ -700,3 +700,8 @@ This project will therefore be divided into two major stages.
 **Dashboard**
 
 The objective is to show the complete journey from raw relational data to a finished analytical report.
+
+
+*Thank you for taking the time to explore this project. It forms part of my data analytics portfolio and showcases my ability to build a relational database from scratch and write SQL ranging from basic filtering to advanced analytical queries using joins, subqueries, CTEs, and window functions. Feedback and suggestions are always welcome.*
+
+*This project was built using the Northwind sample dataset, with SQL Server Management Studio (SSMS) as the environment for database design, data import, and SQL analysis, as part of my ongoing data portfolio.*
