@@ -4,7 +4,7 @@ date: 2026-07-13 00:00:00 +0000
 categories: [Power BI, Data Modeling]
 tags: [Power BI, Power Query, Star Schema, Data Cleaning, DAX]
 image:
-  path: assets/images/cleaning_data.jpg
+  path: assets/images/Superstore/Cleanning and Modeling my data/cleaning_data.jpg
   alt: "Superstore Power BI Data Modeling"
 ---
 
