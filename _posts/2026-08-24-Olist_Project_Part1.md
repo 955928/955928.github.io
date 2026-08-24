@@ -3,7 +3,7 @@ layout: post
 title: "Olist Project: Part 1: Importing and Understanding the Data with Python"
 date: 2026-08-24
 categories: [Python, Data Analysis, Pandas, Olist]
-image: assets/images/OLIST/PYTHON/01_data_understanding/python_data_cover_person.svg
+image: assets/images/OLIST/PYTHON/01_data_understanding/Cover_photo.png
 ---
 
 # Olist Project: Part 1: Importing and Understanding the Data with Python
