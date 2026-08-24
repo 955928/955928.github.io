@@ -201,26 +201,13 @@ After importing all the datasets, I wanted to obtain a quick overview of their s
 
 Instead of checking every DataFrame individually, I grouped them into a dictionary.
 
-    datasets = {
-        "customers": customers,
-        "orders": orders,
-        "order_items": order_items,
-        "payments": payments,
-        "reviews": reviews,
-        "products": products,
-        "sellers": sellers,
-        "geolocation": geolocation,
-        "category_translation": category_translation
-    }
+![Dataset of variables attributed to its respectif table](assets\images\OLIST\PYTHON\01_data_understanding\Creating_Datasets_of_variables.png)
 
 I could then loop through the datasets and display their dimensions:
 
-    for name, df in datasets.items():
-        print(name, df.shape)
+![Orders.shape](assets\images\OLIST\PYTHON\01_data_understanding\Datasets_shape.png)
 
 The `.shape` attribute returns the number of rows and columns contained in a DataFrame.
-
-![Orders.shape](assets\images\OLIST\PYTHON\01_data_understanding\Datasets_shape.png)
 
 This gave me a quick overview of the size of the different datasets before starting the detailed inspection.
 
@@ -240,11 +227,9 @@ After checking the dimensions of the datasets, I inspected the actual contents.
 
 For example, I used:
 
-    orders.head()
+![Orders.head](assets\images\OLIST\PYTHON\01_data_understanding\Datasets_head.png)
 
 The `.head()` method displays the first five rows of the DataFrame.
-
-![Orders.head](assets\images\OLIST\PYTHON\01_data_understanding\Datasets_head.png)
 
 This allowed me to move from simply knowing how large the dataset was to understanding what the individual records actually represented.
 
