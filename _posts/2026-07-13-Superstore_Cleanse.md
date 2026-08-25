@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Power BI Project:Superstore Data Preparation & Modeling"
 date: 2026-07-13 00:00:00 +0000
 categories: [Power Query]

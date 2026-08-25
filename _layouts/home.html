@@ -1,0 +1,217 @@
+---
+layout: default
+---
+
+<div class="portfolio-home">
+
+  <!-- =====================================================
+       WELCOME
+       ===================================================== -->
+
+  <section class="portfolio-welcome">
+
+    <div class="portfolio-welcome-content">
+
+      <h1>Welcome</h1>
+
+      <p>
+        Thank you for taking the time to explore my portfolio.
+      </p>
+
+      <p>
+        This space brings together my data analytics projects,
+        where I explore real-world datasets, develop analytical
+        solutions, and turn raw data into meaningful insights.
+      </p>
+
+      <p>
+        I invite you to explore the projects below and discover
+        the approaches, tools, and analysis behind each one.
+      </p>
+
+      <div class="portfolio-welcome-links">
+
+        <a
+          href="https://github.com/955928"
+          target="_blank"
+          rel="noopener">
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/djovan-chathuant/"
+          target="_blank"
+          rel="noopener">
+          LinkedIn
+        </a>
+
+        <a href="{{ '/assets/RESUME/' | relative_url }}">
+          Resume
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FEATURED PROJECTS
+       ===================================================== -->
+
+  <section class="portfolio-projects">
+
+    <h2>Featured Projects</h2>
+
+    <div class="project-grid">
+
+      <!-- OLIST -->
+
+      <article class="project-card">
+
+        <a
+          class="project-image"
+          href="{{ '/projects/olist/' | relative_url }}">
+
+          <img
+            src="{{ '/assets/images/Olist_cardphoto.jpeg' | relative_url }}"
+            alt="Olist e-commerce project">
+
+        </a>
+
+        <div class="project-content">
+
+          <h3>
+            <a href="{{ '/projects/olist/' | relative_url }}">
+              Olist
+            </a>
+          </h3>
+
+          <p>
+            Brazilian e-commerce analysis exploring the complete
+            journey from raw data to meaningful business insights.
+          </p>
+
+          <a
+            class="project-button"
+            href="{{ '/projects/olist/' | relative_url }}">
+            View Project
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- SUPERSTORE -->
+
+      <article class="project-card">
+
+        <a
+          class="project-image"
+          href="{{ '/projects/superstore/' | relative_url }}">
+
+          <img
+            src="{{ '/assets/images/Superstore/PowerBI/POST_IMAGE.png' | relative_url }}"
+            alt="Superstore project">
+
+        </a>
+
+        <div class="project-content">
+
+          <h3>
+            <a href="{{ '/projects/superstore/' | relative_url }}">
+              Superstore
+            </a>
+          </h3>
+
+          <p>
+            Sales and profitability analysis covering data
+            preparation, modelling and interactive business reporting.
+          </p>
+
+          <a
+            class="project-button"
+            href="{{ '/projects/superstore/' | relative_url }}">
+            View Project
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- NORTHWIND -->
+
+      <article class="project-card">
+
+        <a
+          class="project-image"
+          href="{{ '/projects/northwind/' | relative_url }}">
+
+          <img
+            src="{{ '/assets/images/Northwind_cardphoto.jpg' | relative_url }}"
+            alt="Northwind project">
+
+        </a>
+
+        <div class="project-content">
+
+          <h3>
+            <a href="{{ '/projects/northwind/' | relative_url }}">
+              Northwind
+            </a>
+          </h3>
+
+          <p>
+            Business analysis combining data exploration,
+            advanced querying and interactive reporting.
+          </p>
+
+          <a
+            class="project-button"
+            href="{{ '/projects/northwind/' | relative_url }}">
+            View Project
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       LATEST POSTS
+       ===================================================== -->
+
+  <section class="latest-posts">
+
+    <h2>Latest Posts</h2>
+
+    <div class="latest-post-list">
+
+      {% for post in site.posts limit:5 %}
+
+        <article class="latest-post-item">
+
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time>
+
+        </article>
+
+      {% endfor %}
+
+    </div>
+
+  </section>
+
+</div>

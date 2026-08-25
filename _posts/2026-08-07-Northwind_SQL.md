@@ -4,7 +4,9 @@ title: "Northwind SQL Analysis : From Raw CSV Files to Advanced SQL"
 date: 2026-08-07
 categories: [SQL]
 tags: [SQL Server,Northwind, SQL]
-image: assets/images/Northwind/SQL_img/Northwind_SQL_Analysis.png
+image:
+  path: assets/images/Northwind/SQL_img/Northwind_SQL_Analysis.png
+  alt: "Northwind SQL Analysis"
 ---
 
 # Introduction

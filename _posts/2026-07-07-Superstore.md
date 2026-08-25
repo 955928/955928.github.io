@@ -7,7 +7,7 @@ image:
   path: assets/images/Superstore/PowerBI/POST_IMAGE.png
   alt: "Superstore Power BI Dashboard"
 ---
----
+
 ##Introduction
 
 For this first data project published on my blog, I chose to work with the classic **Superstore dataset** ,a fictional retail company selling furniture, office supplies, and technology products across multiple regions in the United States. This dataset is widely used in the data analytics community and is a great playground to practice business intelligence techniques.
