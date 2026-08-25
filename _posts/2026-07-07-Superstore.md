@@ -1,7 +1,7 @@
 ---
 title: "Power BI Project:Superstore Sales Analysis"
 date: 2026-07-07 00:00:00 +0000
-categories: [Power BI, Data Analysis]
+categories: [Power BI]
 tags: [Power BI, Superstore, Dashboard, Data Visualization]
 image:
   path: assets/images/Superstore/PowerBI/POST_IMAGE.png
