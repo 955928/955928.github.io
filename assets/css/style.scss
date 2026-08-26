@@ -151,7 +151,7 @@ body .portfolio-home .project-card {
 
   border-radius: 25px !important;
 
-  background: var(--card-bg);
+  background: rgba(20, 20, 28, 0.88);
 
   box-sizing: border-box !important;
 }
@@ -337,4 +337,37 @@ body .portfolio-home .latest-post-item time {
     gap: 0.4rem;
   }
 
+}
+/* =========================================================
+   FUTURISTIC SITE BACKGROUND
+   ========================================================= */
+
+body {
+  background-image:
+    linear-gradient(
+      rgba(10, 10, 15, 0.78),
+      rgba(10, 10, 15, 0.78)
+    ),
+    url("../images/site_background_image.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   LET BACKGROUND SHOW THROUGH CHIRPY
+   ========================================================= */
+
+#main-wrapper {
+  background: transparent !important;
+}
+
+#main-wrapper > .container {
+  background: transparent !important;
+}
+
+#tail-wrapper {
+  background: transparent !important;
 }
