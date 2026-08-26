@@ -371,3 +371,31 @@ body {
 #tail-wrapper {
   background: transparent !important;
 }
+
+/* =========================================================
+   SIDEBAR — BRIGHTER TEXT
+   ========================================================= */
+
+#sidebar {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+#sidebar .site-title {
+  color: #ffffff !important;
+}
+
+#sidebar .site-subtitle {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+#sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+#sidebar .nav-link span {
+  color: inherit !important;
+}
+
+#sidebar .sidebar-bottom a {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
