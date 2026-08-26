@@ -2,19 +2,565 @@
 ---
 
 /* =========================================================
-   HOMEPAGE
+   GLOBAL BACKGROUND IMAGE
+   ========================================================= */
+
+/*
+   The background image is attached directly to the BODY.
+   Chirpy's structural containers are made transparent below
+   so the image remains visible on every page.
+*/
+
+html {
+  min-height: 100% !important;
+  background-color: #0a0a0f !important;
+}
+
+body {
+  min-height: 100vh !important;
+
+  background-image:
+    linear-gradient(
+      rgba(10, 10, 15, 0.78),
+      rgba(10, 10, 15, 0.78)
+    ),
+    url("../images/site_background_image.jpg") !important;
+
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   CHIRPY — MAIN STRUCTURE
+   ========================================================= */
+
+/*
+   These are the structural containers that can otherwise
+   cover the BODY background with Chirpy's solid background.
+*/
+
+#main-wrapper,
+#main-wrapper > .container,
+#main-wrapper > .container-fluid,
+#main-wrapper > .container > .row,
+#main-wrapper > .container-fluid > .row,
+#main-wrapper .row,
+#main-wrapper main,
+#main-wrapper .main-content,
+#main-wrapper .content,
+#main-wrapper .col,
+#main-wrapper [class*="col-"],
+#panel-wrapper,
+#tail-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+main,
+main.content,
+main.page,
+main.post,
+main#main,
+main[aria-label="Main Content"],
+article,
+article.post,
+article.page,
+.page,
+.post,
+.content,
+.page-content,
+.post-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   POST LIST PAGE
+   ========================================================= */
+
+#post-list,
+.post-list,
+.posts,
+.posts-list {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/*
+   Individual post preview cards remain slightly dark.
+*/
+
+#post-list .card-wrapper,
+#post-list .card-wrapper.card,
+#post-list article.card,
+#post-list article.card-wrapper,
+#post-list .post-preview {
+  background: rgba(20, 20, 28, 0.78) !important;
+  border-radius: 12px !important;
+}
+
+
+/*
+   Contents inside post cards stay transparent.
+*/
+
+#post-list .card-body,
+#post-list .post-preview.row {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   INDIVIDUAL POST PAGE
+   ========================================================= */
+
+#post-wrapper,
+#post-wrapper > article,
+#post-wrapper article,
+#post-wrapper .content,
+#post-wrapper header,
+#post-wrapper .post-header,
+#post-wrapper .post-content,
+#post-wrapper .post-meta,
+#post-wrapper .post-tail-wrapper,
+#post-wrapper .post-tags,
+#post-wrapper .post-navigation,
+#post-wrapper .post-related,
+.post-main-container,
+.post-content-container,
+.post-tail-wrapper,
+.post-navigation,
+.post-related {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+#categories,
+#categories-wrapper,
+#categories > *,
+#categories .categories,
+#categories .category,
+#categories .category-list,
+#categories .category-list-item,
+#categories .card-wrapper,
+#categories .card,
+#categories .card-body,
+.categories,
+.categories-container,
+.category,
+.category-list,
+.category-list-item {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+#tags,
+#tags-wrapper,
+#tags > *,
+#tags .tags,
+#tags .tag,
+#tags .tag-list,
+#tags .tag-list-item,
+#tags .card-wrapper,
+#tags .card,
+#tags .card-body,
+.tags,
+.tags-container,
+.tag-list,
+.tag-list-item {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   ARCHIVES
+   ========================================================= */
+
+#archives,
+#archives-wrapper,
+#archives > *,
+#archives .archive,
+#archives .archive-list,
+#archives .archive-item,
+#archives .card-wrapper,
+#archives .card,
+#archives .card-body,
+.archives,
+.archives-container,
+.archive,
+.archive-list,
+.archive-item {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+#search,
+#search-wrapper,
+#search-result-wrapper,
+#search-result-wrapper > *,
+#search-hints,
+#search-results,
+#search-results article,
+.search,
+.search-container,
+.search-results,
+.search-result {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/*
+   Search input remains dark for readability.
+*/
+
+#search-input {
+  background: rgba(20, 20, 28, 0.82) !important;
+  background-color: rgba(20, 20, 28, 0.82) !important;
+  color: #ffffff !important;
+}
+
+#search-input::placeholder {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS
+   ========================================================= */
+
+#toc-wrapper,
+#toc,
+#toc-popup,
+#toc-popup-content,
+.toc,
+.toc-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+#topbar-wrapper,
+#topbar,
+#topbar-title,
+#breadcrumb,
+.topbar,
+.navbar,
+.navbar-brand,
+.navbar-nav {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+#sidebar,
+#sidebar .profile-wrapper,
+#sidebar nav,
+#sidebar .nav,
+#sidebar .nav-item,
+#sidebar .sidebar-bottom {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — WHITE TEXT
+   ========================================================= */
+
+#sidebar {
+  color: #ffffff !important;
+}
+
+#sidebar .site-title,
+#sidebar .site-title a {
+  color: #ffffff !important;
+}
+
+#sidebar .site-subtitle {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+#sidebar .nav-link,
+#sidebar .nav-link span,
+#sidebar .nav-link i {
+  color: #ffffff !important;
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link:hover span,
+#sidebar .nav-link:hover i {
+  color: #ffffff !important;
+}
+
+#sidebar .sidebar-bottom,
+#sidebar .sidebar-bottom a,
+#sidebar .sidebar-bottom i {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+#tail-wrapper,
+#tail-wrapper > *,
+footer,
+footer.bg-light,
+footer.bg-dark {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   BOOTSTRAP BACKGROUND UTILITIES
+   ========================================================= */
+
+/*
+   These classes are commonly responsible for opaque
+   backgrounds inside Chirpy.
+*/
+
+.bg-light,
+.bg-white,
+.bg-body,
+.bg-body-tertiary {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   GENERAL CHIRPY CONTAINERS
+   ========================================================= */
+
+#main-wrapper .container,
+#main-wrapper .container-fluid {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   NORMAL CHIRPY CARDS
+   ========================================================= */
+
+/*
+   Cards remain translucent instead of completely transparent.
+   This keeps content readable while still showing the photo.
+*/
+
+.card {
+  background: rgba(20, 20, 28, 0.82) !important;
+}
+
+
+/* =========================================================
+   GLOBAL WHITE TEXT
+   ========================================================= */
+
+body {
+  color: #ffffff !important;
+}
+
+
+/* Main text */
+
+main {
+  color: #ffffff !important;
+}
+
+main p,
+main li {
+  color: #ffffff !important;
+}
+
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff !important;
+}
+
+
+/* Links */
+
+a,
+a:visited {
+  color: #ffffff !important;
+}
+
+a:hover,
+a:focus {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   POST TEXT
+   ========================================================= */
+
+#post-wrapper h1,
+#post-wrapper h2,
+#post-wrapper h3,
+#post-wrapper h4,
+#post-wrapper h5,
+#post-wrapper h6,
+#post-wrapper p,
+#post-wrapper li,
+#post-wrapper a,
+#post-wrapper span {
+  color: #ffffff !important;
+}
+
+
+/* Post metadata */
+
+.post-meta,
+.post-meta *,
+.post-date,
+.post-tags,
+.post-tags *,
+.post-desc {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+
+/* =========================================================
+   CATEGORIES / TAGS / ARCHIVES TEXT
+   ========================================================= */
+
+#categories h1,
+#categories h2,
+#categories h3,
+#categories h4,
+#categories p,
+#categories a,
+#categories span,
+
+#tags h1,
+#tags h2,
+#tags h3,
+#tags h4,
+#tags p,
+#tags a,
+#tags span,
+
+#archives h1,
+#archives h2,
+#archives h3,
+#archives h4,
+#archives p,
+#archives a,
+#archives span {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SEARCH TEXT
+   ========================================================= */
+
+#search,
+#search h1,
+#search h2,
+#search h3,
+#search p,
+#search a,
+#search span,
+#search-result-wrapper,
+#search-result-wrapper a {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   TOPBAR TEXT
+   ========================================================= */
+
+#topbar,
+#topbar *,
+#topbar-title,
+#topbar-title a,
+#breadcrumb,
+#breadcrumb a {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS TEXT
+   ========================================================= */
+
+#toc-wrapper,
+#toc-wrapper *,
+#toc,
+#toc * {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE — YOUR CUSTOM PORTFOLIO
    ========================================================= */
 
 body .portfolio-home {
   width: 100% !important;
   max-width: none !important;
+
   margin: 0 auto !important;
   padding: 0 !important;
+
+  background: transparent !important;
 }
 
 
 /* =========================================================
-   WELCOME — FORCE TRUE CENTER
+   HOMEPAGE — WELCOME
    ========================================================= */
 
 body .portfolio-home .portfolio-welcome {
@@ -29,6 +575,8 @@ body .portfolio-home .portfolio-welcome {
   box-sizing: border-box !important;
 
   text-align: center !important;
+
+  background: transparent !important;
 }
 
 body .portfolio-home .portfolio-welcome-content {
@@ -43,23 +591,46 @@ body .portfolio-home .portfolio-welcome-content {
   box-sizing: border-box !important;
 
   text-align: center !important;
-}
 
-body .portfolio-home .portfolio-welcome-content h1,
-body .portfolio-home .portfolio-welcome-content p {
-  display: block !important;
-
-  width: 100% !important;
-
-  margin-left: auto !important;
-  margin-right: auto !important;
-
-  text-align: center !important;
+  background: transparent !important;
 }
 
 
 /* =========================================================
-   WELCOME LINKS
+   HOMEPAGE — WHITE TEXT
+   ========================================================= */
+
+body .portfolio-home,
+body .portfolio-home h1,
+body .portfolio-home h2,
+body .portfolio-home h3,
+body .portfolio-home h4,
+body .portfolio-home h5,
+body .portfolio-home h6,
+body .portfolio-home p,
+body .portfolio-home a,
+body .portfolio-home a:visited,
+body .portfolio-home span {
+  color: #ffffff !important;
+}
+
+
+/* Welcome heading */
+
+body .portfolio-home .portfolio-welcome-content h1 {
+  color: #ffffff !important;
+}
+
+
+/* Welcome paragraph */
+
+body .portfolio-home .portfolio-welcome-content p {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+
+/* =========================================================
+   HOMEPAGE — WELCOME LINKS
    ========================================================= */
 
 body .portfolio-home .portfolio-welcome-links {
@@ -75,6 +646,8 @@ body .portfolio-home .portfolio-welcome-links {
   gap: 0.8rem;
 
   flex-wrap: wrap;
+
+  background: transparent !important;
 }
 
 body .portfolio-home .portfolio-welcome-links a {
@@ -84,16 +657,19 @@ body .portfolio-home .portfolio-welcome-links a {
 
   padding: 0.6rem 1.1rem;
 
-  border: 1px solid var(--main-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
   border-radius: 8px;
 
   text-decoration: none;
+
   font-weight: 600;
+
+  color: #ffffff !important;
 }
 
 
 /* =========================================================
-   FEATURED PROJECTS
+   HOMEPAGE — FEATURED PROJECTS
    ========================================================= */
 
 body .portfolio-home .portfolio-projects {
@@ -104,16 +680,21 @@ body .portfolio-home .portfolio-projects {
   padding: 0 !important;
 
   box-sizing: border-box !important;
+
+  background: transparent !important;
 }
 
 body .portfolio-home .portfolio-projects > h2 {
   margin-bottom: 1.8rem;
+
   font-size: 1.8rem;
+
+  color: #ffffff !important;
 }
 
 
 /* =========================================================
-   PROJECT GRID
+   HOMEPAGE — PROJECT GRID
    ========================================================= */
 
 body .portfolio-home .project-grid {
@@ -128,11 +709,13 @@ body .portfolio-home .project-grid {
 
   margin: 0 !important;
   padding: 0 !important;
+
+  background: transparent !important;
 }
 
 
 /* =========================================================
-   PROJECT CARD
+   HOMEPAGE — PROJECT CARD
    ========================================================= */
 
 body .portfolio-home .project-card {
@@ -147,25 +730,24 @@ body .portfolio-home .project-card {
 
   overflow: hidden !important;
 
-  border: 1px solid var(--main-border-color) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 
   border-radius: 25px !important;
 
-  background: rgba(20, 20, 28, 0.88);
+  background: rgba(20, 20, 28, 0.88) !important;
 
   box-sizing: border-box !important;
 }
 
 
 /* =========================================================
-   CARD IMAGE
+   HOMEPAGE — PROJECT IMAGE
    ========================================================= */
 
 body .portfolio-home .project-image {
   display: block !important;
 
   width: 100% !important;
-
   height: 140px !important;
 
   margin: 0 !important;
@@ -190,7 +772,7 @@ body .portfolio-home .project-image img {
 
 
 /* =========================================================
-   CARD CONTENT
+   HOMEPAGE — PROJECT CONTENT
    ========================================================= */
 
 body .portfolio-home .project-content {
@@ -200,12 +782,16 @@ body .portfolio-home .project-content {
   flex: 1 !important;
 
   padding: 1.2rem !important;
+
+  background: transparent !important;
 }
 
 body .portfolio-home .project-content h3 {
   margin: 0 0 0.7rem !important;
 
   font-size: 1.25rem;
+
+  color: #ffffff !important;
 }
 
 body .portfolio-home .project-content p {
@@ -214,6 +800,8 @@ body .portfolio-home .project-content p {
   line-height: 1.5;
 
   font-size: 0.9rem;
+
+  color: rgba(255, 255, 255, 0.92) !important;
 }
 
 body .portfolio-home .project-button {
@@ -230,12 +818,15 @@ body .portfolio-home .project-button {
   text-decoration: none;
 
   font-size: 0.84rem;
+
   font-weight: 600;
+
+  color: #ffffff !important;
 }
 
 
 /* =========================================================
-   LATEST POSTS
+   HOMEPAGE — LATEST POSTS
    ========================================================= */
 
 body .portfolio-home .latest-posts {
@@ -244,7 +835,9 @@ body .portfolio-home .latest-posts {
   margin: 3rem auto 0 !important;
   padding-top: 2rem !important;
 
-  border-top: 1px solid var(--main-border-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+  background: transparent !important;
 }
 
 body .portfolio-home .latest-post-list {
@@ -252,6 +845,8 @@ body .portfolio-home .latest-post-list {
   flex-direction: column !important;
 
   gap: 0.7rem;
+
+  background: transparent !important;
 }
 
 body .portfolio-home .latest-post-item {
@@ -264,27 +859,32 @@ body .portfolio-home .latest-post-item {
 
   padding: 1rem 1.2rem;
 
-  border: 1px solid var(--main-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
   border-radius: 10px;
 
-  background: var(--card-bg);
+  background: rgba(20, 20, 28, 0.75) !important;
 }
 
 body .portfolio-home .latest-post-item a {
   font-weight: 600;
+
   text-decoration: none;
+
+  color: #ffffff !important;
 }
 
 body .portfolio-home .latest-post-item time {
   flex-shrink: 0;
 
   font-size: 0.82rem;
-  opacity: 0.65;
+
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 
 /* =========================================================
-   TABLET
+   MOBILE / TABLET
    ========================================================= */
 
 @media (max-width: 1100px) {
@@ -296,10 +896,6 @@ body .portfolio-home .latest-post-item time {
 
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 700px) {
 
@@ -332,70 +928,10 @@ body .portfolio-home .latest-post-item time {
 
   body .portfolio-home .latest-post-item {
     flex-direction: column !important;
+
     align-items: flex-start !important;
 
     gap: 0.4rem;
   }
 
-}
-/* =========================================================
-   FUTURISTIC SITE BACKGROUND
-   ========================================================= */
-
-body {
-  background-image:
-    linear-gradient(
-      rgba(10, 10, 15, 0.78),
-      rgba(10, 10, 15, 0.78)
-    ),
-    url("../images/site_background_image.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-
-/* =========================================================
-   LET BACKGROUND SHOW THROUGH CHIRPY
-   ========================================================= */
-
-#main-wrapper {
-  background: transparent !important;
-}
-
-#main-wrapper > .container {
-  background: transparent !important;
-}
-
-#tail-wrapper {
-  background: transparent !important;
-}
-
-/* =========================================================
-   SIDEBAR — BRIGHTER TEXT
-   ========================================================= */
-
-#sidebar {
-  color: rgba(255, 255, 255, 0.95) !important;
-}
-
-#sidebar .site-title {
-  color: #ffffff !important;
-}
-
-#sidebar .site-subtitle {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-#sidebar .nav-link {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-#sidebar .nav-link span {
-  color: inherit !important;
-}
-
-#sidebar .sidebar-bottom a {
-  color: rgba(255, 255, 255, 0.9) !important;
 }
