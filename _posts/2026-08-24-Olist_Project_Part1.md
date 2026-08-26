@@ -105,7 +105,7 @@ The `requirements.txt` file will document the Python libraries required to repro
 
 Keeping these elements separated makes the project easier to maintain and easier for another person to understand when looking at the GitHub repository.
 
-![Project Folder Structure](assets\images\OLIST\PYTHON\01_data_understanding\Project_folder_structure.png)
+![Project Folder Structure](assets/images/OLIST/PYTHON/01_data_understanding/Project_folder_structure.png)
 
 
 ---
@@ -148,7 +148,7 @@ I first imported the libraries required for the data preparation process.
 
 The main libraries used at this stage were Pandas and NumPy.
 
-![Importing Pands and Numpy](assets\images\OLIST\PYTHON\01_data_understanding\Importing_pandas_numpy.png)
+![Importing Pands and Numpy](assets/images/OLIST/PYTHON/01_data_understanding/Importing_pandas_numpy.png)
 
 Pandas is particularly important because it allows CSV files to be loaded into DataFrames.
 
@@ -185,11 +185,11 @@ I imported each CSV file into a separate Pandas DataFrame.
 
 For example:
 
-![Importing and Applying Variables To The Datasets](assets\images\OLIST\PYTHON\01_data_understanding\Importing_and_applying_variables_to_datasets.png)
+![Importing and Applying Variables To The Datasets](assets/images/OLIST/PYTHON/01_data_understanding/Importing_and_applying_variables_to_datasets.png)
 
 I kept the original files inside the `data/raw` directory.
 
-![Olist Raw Datasets](assets\images\OLIST\PYTHON\01_data_understanding\Raw_datasets.png)
+![Olist Raw Datasets](assets/images/OLIST/PYTHON/01_data_understanding/Raw_datasets.png)
 
 This separation will become useful later because the original data should remain unchanged while the cleaned and transformed versions are created separately.
 
@@ -201,11 +201,11 @@ After importing all the datasets, I wanted to obtain a quick overview of their s
 
 Instead of checking every DataFrame individually, I grouped them into a dictionary.
 
-![Dataset of variables attributed to its respectif table](assets\images\OLIST\PYTHON\01_data_understanding\Creating_Datasets_of_variables.png)
+![Dataset of variables attributed to its respectif table](assets/images/OLIST/PYTHON/01_data_understanding/Creating_Datasets_of_variables.png)
 
 I could then loop through the datasets and display their dimensions:
 
-![Orders.shape](assets\images\OLIST\PYTHON\01_data_understanding\Datasets_shape.png)
+![Orders.shape](assets/images/OLIST/PYTHON/01_data_understanding/Datasets_shape.png)
 
 The `.shape` attribute returns the number of rows and columns contained in a DataFrame.
 
@@ -227,7 +227,7 @@ After checking the dimensions of the datasets, I inspected the actual contents.
 
 For example, I used:
 
-![Orders.head](assets\images\OLIST\PYTHON\01_data_understanding\Datasets_head.png)
+![Orders.head](assets/images/OLIST/PYTHON/01_data_understanding/Datasets_head.png)
 
 The `.head()` method displays the first five rows of the DataFrame.
 
@@ -272,7 +272,7 @@ Several columns that represented dates or timestamps had been imported as string
 
 For example:
 
-![Identifying Date type variables imported as Str() type](assets\images\OLIST\PYTHON\01_data_understanding\Identifying_columns_to_convert_to_datetype.png)
+![Identifying Date type variables imported as Str() type](assets/images/OLIST/PYTHON/01_data_understanding/Identifying_columns_to_convert_to_datetype.png)
 
 This is common when working with CSV files because CSV files do not inherently enforce a specific data type for a column.
 
@@ -319,7 +319,7 @@ Another important part of the initial investigation was identifying missing valu
 
 I checked missing values across all of the datasets using:
 
-![Verification of Missing Values](assets\images\OLIST\PYTHON\01_data_understanding\Missing_values_verification.png)
+![Verification of Missing Values](assets/images/OLIST/PYTHON/01_data_understanding/Missing_values_verification.png)
 
 
 This allowed me to identify which columns contained missing information and how extensive the problem was.
@@ -447,7 +447,7 @@ For example, an `order_id` identifies an order, but that same order can appear m
 
 This helped me understand the structure of the database before beginning the merging process.
 
-![Identifier Check](assets\images\OLIST\PYTHON\01_data_understanding\Identifier_verification.png)
+![Identifier Check](assets/images/OLIST/PYTHON/01_data_understanding/Identifier_verification.png)
 
 ---
 

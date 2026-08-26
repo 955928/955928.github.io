@@ -2,56 +2,59 @@
 ---
 
 /* =========================================================
-   HOMEPAGE CONTAINER
+   HOMEPAGE
    ========================================================= */
 
-.portfolio-home {
-  width: 100%;
-  margin: 0 auto;
+body .portfolio-home {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
 }
 
 
 /* =========================================================
-   WELCOME SECTION
+   WELCOME — FORCE TRUE CENTER
    ========================================================= */
 
-.portfolio-welcome {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body .portfolio-home .portfolio-welcome {
+  width: 100% !important;
+  max-width: none !important;
 
-  margin: 0 auto 4rem;
-  padding: 3rem 1rem;
+  display: block !important;
 
-  text-align: center;
+  margin: 0 auto 4rem auto !important;
+  padding: 3rem 1rem !important;
+
+  box-sizing: border-box !important;
+
+  text-align: center !important;
 }
 
-.portfolio-welcome-content {
-  width: 100%;
-  max-width: 800px;
+body .portfolio-home .portfolio-welcome-content {
+  display: block !important;
 
-  margin: 0 auto;
+  width: 100% !important;
+  max-width: 800px !important;
 
-  text-align: center;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+
+  text-align: center !important;
 }
 
-.portfolio-welcome-content h1 {
-  margin: 0 0 1.5rem;
+body .portfolio-home .portfolio-welcome-content h1,
+body .portfolio-home .portfolio-welcome-content p {
+  display: block !important;
 
-  font-size: 2.8rem;
+  width: 100% !important;
 
-  text-align: center;
-}
+  margin-left: auto !important;
+  margin-right: auto !important;
 
-.portfolio-welcome-content p {
-  max-width: 700px;
-
-  margin: 0 auto 1rem;
-
-  line-height: 1.7;
-
-  text-align: center;
+  text-align: center !important;
 }
 
 
@@ -59,23 +62,25 @@
    WELCOME LINKS
    ========================================================= */
 
-.portfolio-welcome-links {
-  display: flex;
+body .portfolio-home .portfolio-welcome-links {
+  display: flex !important;
 
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
 
-  flex-wrap: wrap;
+  width: 100% !important;
+
+  margin: 2rem auto 0 !important;
 
   gap: 0.8rem;
 
-  margin: 2rem auto 0;
-
-  text-align: center;
+  flex-wrap: wrap;
 }
 
-.portfolio-welcome-links a {
-  display: inline-block;
+body .portfolio-home .portfolio-welcome-links a {
+  display: inline-block !important;
+
+  width: auto !important;
 
   padding: 0.6rem 1.1rem;
 
@@ -84,17 +89,6 @@
 
   text-decoration: none;
   font-weight: 600;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.portfolio-welcome-links a:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -102,15 +96,18 @@
    FEATURED PROJECTS
    ========================================================= */
 
-.portfolio-projects {
-  width: 100%;
+body .portfolio-home .portfolio-projects {
+  width: 100% !important;
+  max-width: none !important;
 
-  margin-bottom: 4rem;
+  margin: 0 auto 4rem !important;
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
 }
 
-.portfolio-projects > h2 {
+body .portfolio-home .portfolio-projects > h2 {
   margin-bottom: 1.8rem;
-
   font-size: 1.8rem;
 }
 
@@ -119,13 +116,18 @@
    PROJECT GRID
    ========================================================= */
 
-.project-grid {
-  display: grid;
+body .portfolio-home .project-grid {
+  display: grid !important;
+
+  width: 100% !important;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    repeat(3, minmax(0, 1fr)) !important;
 
-  gap: 1.5rem;
+  gap: 1.5rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 
@@ -133,123 +135,102 @@
    PROJECT CARD
    ========================================================= */
 
-.project-card {
-  display: flex;
-  flex-direction: column;
+body .portfolio-home .project-card {
+  display: flex !important;
+  flex-direction: column !important;
 
-  overflow: hidden;
+  width: 100% !important;
+  min-width: 0 !important;
 
-  border: 1px solid var(--main-border-color);
-  border-radius: 14px;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid var(--main-border-color) !important;
+
+  border-radius: 25px !important;
 
   background: var(--card-bg);
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box !important;
 }
 
 
 /* =========================================================
-   PROJECT CARD IMAGE
+   CARD IMAGE
    ========================================================= */
 
-.project-image {
-  display: block;
+body .portfolio-home .project-image {
+  display: block !important;
 
-  width: 100%;
-  height: 210px;
+  width: 100% !important;
 
-  overflow: hidden;
+  height: 140px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  border-radius: 25px 25px 0 0 !important;
 }
 
-.project-image img {
-  display: block;
+body .portfolio-home .project-image img {
+  display: block !important;
 
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 
-  object-fit: cover;
+  margin: 0 !important;
+  padding: 0 !important;
 
-  transition:
-    transform 0.35s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.04);
+  object-fit: cover !important;
 }
 
 
 /* =========================================================
-   PROJECT CARD CONTENT
+   CARD CONTENT
    ========================================================= */
 
-.project-content {
-  display: flex;
-  flex-direction: column;
+body .portfolio-home .project-content {
+  display: flex !important;
+  flex-direction: column !important;
 
-  flex: 1;
+  flex: 1 !important;
 
-  padding: 1.4rem;
+  padding: 1.2rem !important;
 }
 
-.project-content h3 {
-  margin: 0 0 0.8rem;
+body .portfolio-home .project-content h3 {
+  margin: 0 0 0.7rem !important;
 
-  font-size: 1.35rem;
+  font-size: 1.25rem;
 }
 
-.project-content h3 a {
-  text-decoration: none;
+body .portfolio-home .project-content p {
+  margin: 0 0 1rem !important;
+
+  line-height: 1.5;
+
+  font-size: 0.9rem;
 }
 
-.project-content p {
-  margin: 0 0 1.3rem;
+body .portfolio-home .project-button {
+  display: inline-block !important;
 
-  line-height: 1.6;
+  width: fit-content !important;
 
-  font-size: 0.92rem;
+  margin-top: auto !important;
 
-  opacity: 0.82;
-}
+  padding: 0.5rem 0.8rem;
 
-
-/* =========================================================
-   PROJECT BUTTON
-   ========================================================= */
-
-.project-button {
-  display: inline-block;
-
-  width: fit-content;
-
-  margin-top: auto;
-
-  padding: 0.55rem 0.85rem;
-
-  border-radius: 7px;
+  border-radius: 8px;
 
   text-decoration: none;
 
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
-
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.project-button:hover {
-  transform: translateY(-2px);
-
-  opacity: 0.8;
 }
 
 
@@ -257,35 +238,24 @@
    LATEST POSTS
    ========================================================= */
 
-.latest-posts {
-  width: 100%;
+body .portfolio-home .latest-posts {
+  width: 100% !important;
 
-  margin-top: 3rem;
-  padding-top: 2rem;
+  margin: 3rem auto 0 !important;
+  padding-top: 2rem !important;
 
   border-top: 1px solid var(--main-border-color);
 }
 
-.latest-posts > h2 {
-  margin-bottom: 1.5rem;
-
-  font-size: 1.8rem;
-}
-
-.latest-post-list {
-  display: flex;
-  flex-direction: column;
+body .portfolio-home .latest-post-list {
+  display: flex !important;
+  flex-direction: column !important;
 
   gap: 0.7rem;
 }
 
-
-/* =========================================================
-   LATEST POST ITEM
-   ========================================================= */
-
-.latest-post-item {
-  display: flex;
+body .portfolio-home .latest-post-item {
+  display: flex !important;
 
   align-items: center;
   justify-content: space-between;
@@ -298,188 +268,17 @@
   border-radius: 10px;
 
   background: var(--card-bg);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
-.latest-post-item:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.latest-post-item a {
+body .portfolio-home .latest-post-item a {
   font-weight: 600;
-
   text-decoration: none;
 }
 
-.latest-post-item time {
+body .portfolio-home .latest-post-item time {
   flex-shrink: 0;
 
   font-size: 0.82rem;
-
-  opacity: 0.65;
-}
-
-
-/* =========================================================
-   PROJECT OVERVIEW PAGES
-   ========================================================= */
-
-.project-page {
-  width: 100%;
-  max-width: 900px;
-
-  margin: 0 auto;
-}
-
-.project-page-image {
-  width: 100%;
-  height: 400px;
-
-  margin-bottom: 2rem;
-
-  overflow: hidden;
-
-  border-radius: 14px;
-}
-
-.project-page-image img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-.project-page h1 {
-  margin-bottom: 1rem;
-
-  font-size: 2.4rem;
-}
-
-.project-page h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-
-/* =========================================================
-   PROJECT PAGE TAGS
-   ========================================================= */
-
-.project-page-tags {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 0.5rem;
-
-  margin-bottom: 2rem;
-}
-
-.project-page-tags span {
-  padding: 0.3rem 0.7rem;
-
-  border-radius: 999px;
-
-  background: var(--main-border-color);
-
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   PROJECT POST CARDS
-   ========================================================= */
-
-.project-post-card {
-  display: flex;
-
-  overflow: hidden;
-
-  margin-bottom: 1.5rem;
-
-  border: 1px solid var(--main-border-color);
-  border-radius: 12px;
-
-  background: var(--card-bg);
-
-  text-decoration: none;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.project-post-card:hover {
-  transform: translateY(-4px);
-
-  box-shadow:
-    0 8px 22px rgba(0, 0, 0, 0.12);
-}
-
-
-/* =========================================================
-   PROJECT POST IMAGE
-   ========================================================= */
-
-.project-post-image {
-  flex: 0 0 280px;
-
-  height: 170px;
-
-  overflow: hidden;
-}
-
-.project-post-image img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition:
-    transform 0.35s ease;
-}
-
-.project-post-card:hover .project-post-image img {
-  transform: scale(1.04);
-}
-
-
-/* =========================================================
-   PROJECT POST CONTENT
-   ========================================================= */
-
-.project-post-content {
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-
-  padding: 1.4rem;
-}
-
-.project-post-content h3 {
-  margin: 0 0 0.6rem;
-
-  font-size: 1.15rem;
-}
-
-.project-post-content h3 a {
-  text-decoration: none;
-}
-
-.project-post-content time {
-  font-size: 0.8rem;
-
   opacity: 0.65;
 }
 
@@ -490,9 +289,9 @@
 
 @media (max-width: 1100px) {
 
-  .project-grid {
+  body .portfolio-home .project-grid {
     grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+      repeat(2, minmax(0, 1fr)) !important;
   }
 
 }
@@ -504,79 +303,38 @@
 
 @media (max-width: 700px) {
 
-  /* Welcome */
-
-  .portfolio-welcome {
-    padding: 2.5rem 1rem;
+  body .portfolio-home .portfolio-welcome {
+    padding: 2.5rem 1rem !important;
   }
 
-  .portfolio-welcome-content {
-    max-width: 100%;
-  }
-
-  .portfolio-welcome-content h1 {
+  body .portfolio-home .portfolio-welcome-content h1 {
     font-size: 2.2rem;
   }
 
-  .portfolio-welcome-content p {
-    max-width: 100%;
+  body .portfolio-home .portfolio-welcome-links {
+    flex-direction: column !important;
   }
 
-  .portfolio-welcome-links {
-    flex-direction: column;
+  body .portfolio-home .portfolio-welcome-links a {
+    width: 100% !important;
+    max-width: 220px !important;
 
-    align-items: center;
+    text-align: center !important;
   }
 
-  .portfolio-welcome-links a {
-    width: 100%;
-
-    max-width: 220px;
-
-    text-align: center;
+  body .portfolio-home .project-grid {
+    grid-template-columns: 1fr !important;
   }
 
-
-  /* Projects */
-
-  .project-grid {
-    grid-template-columns: 1fr;
+  body .portfolio-home .project-image {
+    height: 180px !important;
   }
 
-  .project-image {
-    height: 220px;
-  }
-
-
-  /* Latest Posts */
-
-  .latest-post-item {
-    flex-direction: column;
-
-    align-items: flex-start;
+  body .portfolio-home .latest-post-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
 
     gap: 0.4rem;
-  }
-
-
-  /* Project Posts */
-
-  .project-post-card {
-    flex-direction: column;
-  }
-
-  .project-post-image {
-    flex: none;
-
-    width: 100%;
-    height: 200px;
-  }
-
-
-  /* Project Page */
-
-  .project-page-image {
-    height: 250px;
   }
 
 }
