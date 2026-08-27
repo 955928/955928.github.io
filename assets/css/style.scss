@@ -287,17 +287,178 @@ article.page,
 
 
 /* =========================================================
-   SIDEBAR
+   SIDEBAR — VISIBLE BORDER OVER BACKGROUND IMAGE
    ========================================================= */
 
-#sidebar,
-#sidebar .profile-wrapper,
-#sidebar nav,
-#sidebar .nav,
-#sidebar .nav-item,
+/*
+   The sidebar is a transparent glass panel sitting directly
+   on top of the global background image.
+
+   The border makes the sidebar visually separate from
+   the background without hiding the image.
+*/
+
+#sidebar {
+  background: rgba(5, 10, 18, 0.18) !important;
+  background-color: rgba(5, 10, 18, 0.18) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  border-radius: 18px !important;
+
+  box-sizing: border-box !important;
+
+  color: #ffffff !important;
+
+  z-index: 100 !important;
+
+  /*
+     Very subtle glass effect.
+     The background image remains visible through it.
+  */
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  /*
+     Small glow around the border so it remains visible
+     against both dark and bright parts of the image.
+  */
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 0 18px rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — PROFILE
+   ========================================================= */
+
+#sidebar .profile-wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — TITLE
+   ========================================================= */
+
+#sidebar .site-title {
+  color: #ffffff !important;
+}
+
+#sidebar .site-subtitle {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — NAVIGATION
+   ========================================================= */
+
+#sidebar nav {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#sidebar .nav {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#sidebar .nav-item {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#sidebar .nav-link {
+  background: transparent !important;
+  background-color: transparent !important;
+
+  color: #ffffff !important;
+}
+
+#sidebar .nav-link span {
+  color: #ffffff !important;
+}
+
+#sidebar .nav-link i {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — ACTIVE HOME BUTTON
+   ========================================================= */
+
+#sidebar .nav-item.active > .nav-link {
+  background: rgba(255, 255, 255, 0.13) !important;
+
+  color: #ffffff !important;
+
+  border-radius: 12px !important;
+}
+
+#sidebar .nav-item.active > .nav-link i,
+#sidebar .nav-item.active > .nav-link span {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — HOVER
+   ========================================================= */
+
+#sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+
+  color: #ffffff !important;
+
+  border-radius: 12px !important;
+}
+
+#sidebar .nav-link:hover i,
+#sidebar .nav-link:hover span {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — BOTTOM / SOCIAL ICONS
+   ========================================================= */
+
 #sidebar .sidebar-bottom {
   background: transparent !important;
   background-color: transparent !important;
+}
+
+#sidebar .sidebar-bottom a {
+  color: #ffffff !important;
+}
+
+#sidebar .sidebar-bottom a i {
+  color: #ffffff !important;
+}
+
+#sidebar .sidebar-bottom .nav-link {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SIDEBAR — MOBILE
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  #sidebar {
+    border: 1px solid rgba(255, 255, 255, 0.40) !important;
+
+    border-radius: 16px !important;
+
+    background: rgba(5, 10, 18, 0.25) !important;
+    background-color: rgba(5, 10, 18, 0.25) !important;
+  }
+
 }
 
 
