@@ -14,7 +14,7 @@ timezone: Europe/Paris
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: "Djovan's Data Blog" # the main title
+title: "Abyss Core" # the main title
 
 tagline: "From raw data to meaningful insights: exploring the tools and thinking behind data analysis." # it will display as the subtitle
 
